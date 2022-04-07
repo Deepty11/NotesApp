@@ -43,7 +43,6 @@ class NotesListViewController: UIViewController, UITableViewDelegate, UITableVie
         if sender.state == .began{
             let touchPoint = sender.location(in: self.tableView)
             let indexRow = tableView.indexPathForRow(at: touchPoint)?.row
-            print("Touched at : \(indexRow ?? -1)")
         }
     }
     

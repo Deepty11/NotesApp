@@ -118,11 +118,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9I-KM-dk7">
                                                     <rect key="frame" x="5" y="10" width="404" height="385"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O4f-QG-7pH">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4f-QG-7pH">
                                                             <rect key="frame" x="5" y="2.5" width="394" height="380"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                            <color key="textColor" systemColor="labelColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
@@ -164,6 +162,7 @@
                     <navigationItem key="navigationItem" id="oGk-IY-gJA"/>
                     <connections>
                         <outlet property="tableView" destination="Vlm-EX-ecg" id="xLj-O9-gRC"/>
+                        <outlet property="tableViewBottomConstraint" destination="oiZ-il-Ocx" id="I7Q-10-MfX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4P-yz-cId" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -196,9 +195,6 @@
         <namedColor name="Card Background Color">
             <color red="0.68300002813339233" green="0.9179999828338623" blue="0.53799998760223389" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
