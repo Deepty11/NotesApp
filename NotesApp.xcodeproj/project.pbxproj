@@ -13,7 +13,6 @@
 		BF3AD2E227FC126300002E53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD2E127FC126300002E53 /* AppDelegate.swift */; };
 		BF3AD2E427FC126300002E53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD2E327FC126300002E53 /* SceneDelegate.swift */; };
 		BF3AD2E627FC126300002E53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD2E527FC126300002E53 /* ViewController.swift */; };
-		BF3AD2E927FC126300002E53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3AD2E727FC126300002E53 /* Main.storyboard */; };
 		BF3AD2EB27FC126800002E53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3AD2EA27FC126800002E53 /* Assets.xcassets */; };
 		BF3AD2EE27FC126800002E53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3AD2EC27FC126800002E53 /* LaunchScreen.storyboard */; };
 		BF3AD2F927FC126900002E53 /* NotesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD2F827FC126900002E53 /* NotesAppTests.swift */; };
@@ -21,6 +20,7 @@
 		BF3AD30527FC126900002E53 /* NotesAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD30427FC126900002E53 /* NotesAppUITestsLaunchTests.swift */; };
 		BF3AD31627FC1FE900002E53 /* NotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD31527FC1FE900002E53 /* NotesListViewController.swift */; };
 		BF3AD31827FC31FD00002E53 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD31727FC31FD00002E53 /* AddNoteViewController.swift */; };
+		BF5F714627FED9C600E3AB2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF5F714527FED9C600E3AB2B /* Main.storyboard */; };
 		BF7C71C527FD5C8B00723BEE /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C71C427FD5C8B00723BEE /* Note.swift */; };
 		BF7C71C827FD67EA00723BEE /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C71C727FD67EA00723BEE /* NotesTableViewCell.swift */; };
 		BF7C71CA27FD9EC100723BEE /* AddNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C71C927FD9EC100723BEE /* AddNoteTableViewCell.swift */; };
@@ -54,7 +54,6 @@
 		BF3AD2E127FC126300002E53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF3AD2E327FC126300002E53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BF3AD2E527FC126300002E53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BF3AD2E827FC126300002E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF3AD2EA27FC126800002E53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF3AD2ED27FC126800002E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF3AD2EF27FC126800002E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		BF3AD30427FC126900002E53 /* NotesAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BF3AD31527FC1FE900002E53 /* NotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewController.swift; sourceTree = "<group>"; };
 		BF3AD31727FC31FD00002E53 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		BF5F714527FED9C600E3AB2B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		BF7C71C427FD5C8B00723BEE /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		BF7C71C727FD67EA00723BEE /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		BF7C71C927FD9EC100723BEE /* AddNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteTableViewCell.swift; sourceTree = "<group>"; };
@@ -181,8 +181,8 @@
 		BF3AD31227FC12D500002E53 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF5F714527FED9C600E3AB2B /* Main.storyboard */,
 				BF3AD2EC27FC126800002E53 /* LaunchScreen.storyboard */,
-				BF3AD2E727FC126300002E53 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,9 +323,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5F714627FED9C600E3AB2B /* Main.storyboard in Resources */,
 				BF3AD2EE27FC126800002E53 /* LaunchScreen.storyboard in Resources */,
 				BF3AD2EB27FC126800002E53 /* Assets.xcassets in Resources */,
-				BF3AD2E927FC126300002E53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,14 +497,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BF3AD2E727FC126300002E53 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF3AD2E827FC126300002E53 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BF3AD2EC27FC126800002E53 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

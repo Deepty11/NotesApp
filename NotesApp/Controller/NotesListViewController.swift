@@ -23,6 +23,7 @@ class NotesListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.dataSource = self
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressed))
         self.tableView.addGestureRecognizer(longPress)
+        
 
     }
     
@@ -30,6 +31,7 @@ class NotesListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewWillAppear(animated)
         self.tableView.isHidden = notes.isEmpty ? true : false
         self.emptyNotesLabel.isHidden = notes.isEmpty ? false : true
+        self.tableView.reloadData()
     }
     
     private func configureNavigationBar(){
@@ -42,7 +44,16 @@ class NotesListViewController: UIViewController, UITableViewDelegate, UITableVie
     @objc func handleLongPressed(sender: UILongPressGestureRecognizer){
         if sender.state == .began{
             let touchPoint = sender.location(in: self.tableView)
-            let indexRow = tableView.indexPathForRow(at: touchPoint)?.row
+            if let indexRow = tableView.indexPathForRow(at: touchPoint)?.row{
+                let alert = UIAlertController(title: "Attention",
+                                              message: "Do you want to delete the note?",
+                                              preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Confirm",
+                                             style: .default) { action in
+                    let note = self.realm.objects(Note.self).filter("id == %d", indexRow)
+                }
+            }
+            
         }
     }
     
@@ -72,6 +83,9 @@ class NotesListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         return UITableViewCell()
     }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
     
 
     

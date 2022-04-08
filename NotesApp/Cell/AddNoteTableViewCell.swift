@@ -35,6 +35,7 @@ class AddNoteTableViewCell: UITableViewCell, UITextViewDelegate {
         } else{
             self.pageTextView.textColor = .black
         }
+        delegate?.textViewDidChanged(cell: self)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

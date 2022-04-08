@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class Note: Object{
-    @Persisted(primaryKey: true) var id: Int
+    @Persisted var id: Int
     @Persisted var frontPage: String?
     @Persisted var backPage: String?
 }

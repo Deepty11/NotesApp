@@ -14,8 +14,8 @@ enum PageName{
 }
 protocol CellInteractionDelegte{
     func textViewDidBeginEditing(cell: UITableViewCell)
-    func textViewDidEndEditing()
-    func textViewDidChanged()
+    func textViewDidEndEditing(cell: UITableViewCell)
+    func textViewDidChanged(cell: UITableViewCell)
 }
 class AddNoteViewController: UIViewController,
                                 UITableViewDataSource,
@@ -29,6 +29,8 @@ class AddNoteViewController: UIViewController,
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     let realm = try! Realm()
+    var frontPageContent = String()
+    var backPageContent = String()
     var tapG : UITapGestureRecognizer{
         return UITapGestureRecognizer(target: self,
                                       action: #selector(handleTableViewTapped))
@@ -75,14 +77,26 @@ class AddNoteViewController: UIViewController,
     }
     
     @objc func handleSaveButtonTapped(){
-        
-        let alert = UIAlertController(title: nil,
-                                      message: "Saved!",
-                                      preferredStyle: .alert)
-        self.present(alert,
-                     animated: true) {
-            self.dismiss(animated: true)
+        do{
+            try realm.write {
+                let note = Note()
+                note.id = realm.objects(Note.self).count  
+                note.frontPage = self.frontPageContent
+                note.backPage = self.backPageContent
+                realm.add(note)
+            }
+            let alert = UIAlertController(title: nil,
+                                          message: "Saved!",
+                                          preferredStyle: .alert)
+            self.present(alert,
+                         animated: true) {
+                self.dismiss(animated: true)
+            }
+        } catch{
+            print(error.localizedDescription)
         }
+       
+       
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -126,12 +140,30 @@ class AddNoteViewController: UIViewController,
        
     }
     
-    func textViewDidEndEditing() {
-        //
+    func textViewDidEndEditing(cell: UITableViewCell) {
+//        if let indexPath = tableView.indexPath(for: cell){
+//            if let cell = tableView.cellForRow(at: indexPath) as? AddNoteTableViewCell{
+//                let text = cell.pageTextView.text
+//                if indexPath.row == 0{
+//                    self.frontPageContent = text ?? ""
+//                } else{
+//                    self.backPageContent = text ??  ""
+//                }
+//            }
+//        }
     }
     
-    func textViewDidChanged() {
-        //UI
+    func textViewDidChanged(cell: UITableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell){
+            if let cell = tableView.cellForRow(at: indexPath) as? AddNoteTableViewCell{
+                let text = cell.pageTextView.text
+                if indexPath.row == 0{
+                    self.frontPageContent = text ?? ""
+                } else{
+                    self.backPageContent = text ??  ""
+                }
+            }
+        }
     }
     
 
