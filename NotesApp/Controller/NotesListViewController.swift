@@ -44,7 +44,7 @@ class NotesListViewController: UIViewController, UITableViewDelegate, UITableVie
                                                                  target: self,
                                                                  action: #selector(addButtonTapped))
     }
-    
+    // long press to delete a note by its id provided
     @objc func handleLongPressed(sender: UILongPressGestureRecognizer){
         if sender.state == .began{
             let touchPoint = sender.location(in: self.tableView)
