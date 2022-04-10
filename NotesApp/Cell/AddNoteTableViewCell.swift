@@ -23,8 +23,14 @@ class AddNoteTableViewCell: UITableViewCell, UITextViewDelegate {
     
     func configureCell(){
         self.pageTextView.delegate = self
-        self.pageTextView.text = pageName == .front ? "Front Page" : "Back Page"
-        self.pageTextView.textColor = UIColor.gray
+        if self.pageTextView.text == "" || self.pageTextView.text == nil{
+            self.pageTextView.text = pageName == .front ? "Front Page" : "Back Page"
+            self.pageTextView.textColor = UIColor.gray
+        } else{
+            self.pageTextView.textColor = UIColor.black
+        }
+        
+        self.cellView.layer.cornerRadius = 5.0
     }
     
     func textViewDidChange(_ textView: UITextView) {

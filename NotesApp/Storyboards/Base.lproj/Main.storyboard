@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K2a-Ed-N1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K2a-Ed-N1y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,7 +27,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Il-6H-3nn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Il-6H-3nn">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -38,36 +39,38 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="270"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMD-ec-aK9">
-                                                    <rect key="frame" x="5" y="7" width="404" height="261"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMD-ec-aK9" customClass="CardView" customModule="NotesApp" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="7" width="384" height="261"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXe-R8-t5N">
-                                                            <rect key="frame" x="5" y="2.5" width="394" height="256"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8J-jX-Oen">
+                                                            <rect key="frame" x="5" y="2.5" width="374" height="256"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <color key="textColor" systemColor="labelColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" name="Card Background Color"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="mXe-R8-t5N" secondAttribute="bottom" constant="2.5" id="9Ul-lB-96M"/>
-                                                        <constraint firstItem="mXe-R8-t5N" firstAttribute="top" secondItem="TMD-ec-aK9" secondAttribute="top" constant="2.5" id="Dfk-4T-suQ"/>
-                                                        <constraint firstItem="mXe-R8-t5N" firstAttribute="leading" secondItem="TMD-ec-aK9" secondAttribute="leading" constant="5" id="Ptu-I4-I2G"/>
-                                                        <constraint firstAttribute="trailing" secondItem="mXe-R8-t5N" secondAttribute="trailing" constant="5" id="hDJ-Zv-nu2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="S8J-jX-Oen" secondAttribute="bottom" constant="2.5" id="C2p-o2-n0h"/>
+                                                        <constraint firstItem="S8J-jX-Oen" firstAttribute="leading" secondItem="TMD-ec-aK9" secondAttribute="leading" constant="5" id="Hdd-iW-Bre"/>
+                                                        <constraint firstAttribute="trailing" secondItem="S8J-jX-Oen" secondAttribute="trailing" constant="5" id="ook-Dn-VXv"/>
+                                                        <constraint firstItem="S8J-jX-Oen" firstAttribute="top" secondItem="TMD-ec-aK9" secondAttribute="top" constant="2.5" id="w4Q-vJ-yrW"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="TMD-ec-aK9" firstAttribute="top" secondItem="HcN-FW-pFT" secondAttribute="top" constant="7" id="BvE-SB-3ls"/>
                                                 <constraint firstAttribute="bottom" secondItem="TMD-ec-aK9" secondAttribute="bottom" constant="2" id="cdu-OT-coQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="TMD-ec-aK9" secondAttribute="trailing" constant="5" id="dj3-ig-RMe"/>
-                                                <constraint firstItem="TMD-ec-aK9" firstAttribute="leading" secondItem="HcN-FW-pFT" secondAttribute="leading" constant="5" id="es7-b6-hfD"/>
+                                                <constraint firstAttribute="trailing" secondItem="TMD-ec-aK9" secondAttribute="trailing" constant="15" id="dj3-ig-RMe"/>
+                                                <constraint firstItem="TMD-ec-aK9" firstAttribute="leading" secondItem="HcN-FW-pFT" secondAttribute="leading" constant="15" id="es7-b6-hfD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cellView" destination="TMD-ec-aK9" id="ynq-DW-Jmb"/>
-                                            <outlet property="pageLabel" destination="mXe-R8-t5N" id="NZC-Cy-8T3"/>
+                                            <outlet property="pageTextView" destination="S8J-jX-Oen" id="GXz-d0-c5K"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -116,11 +119,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9I-KM-dk7">
-                                                    <rect key="frame" x="5" y="10" width="404" height="385"/>
+                                                    <rect key="frame" x="15" y="10" width="384" height="385"/>
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4f-QG-7pH">
-                                                            <rect key="frame" x="5" y="2.5" width="394" height="380"/>
+                                                            <rect key="frame" x="5" y="2.5" width="374" height="380"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
@@ -135,8 +139,8 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="S9I-KM-dk7" secondAttribute="trailing" constant="5" id="Rja-0E-3xJ"/>
-                                                <constraint firstItem="S9I-KM-dk7" firstAttribute="leading" secondItem="SA7-BA-2xA" secondAttribute="leading" constant="5" id="iWq-6G-xhE"/>
+                                                <constraint firstAttribute="trailing" secondItem="S9I-KM-dk7" secondAttribute="trailing" constant="15" id="Rja-0E-3xJ"/>
+                                                <constraint firstItem="S9I-KM-dk7" firstAttribute="leading" secondItem="SA7-BA-2xA" secondAttribute="leading" constant="15" id="iWq-6G-xhE"/>
                                                 <constraint firstItem="S9I-KM-dk7" firstAttribute="top" secondItem="SA7-BA-2xA" secondAttribute="top" constant="10" id="iyJ-M2-lLO"/>
                                                 <constraint firstAttribute="bottom" secondItem="S9I-KM-dk7" secondAttribute="bottom" constant="5" id="phi-e2-316"/>
                                             </constraints>
@@ -167,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4P-yz-cId" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1637.68115942029" y="67.633928571428569"/>
+            <point key="canvasLocation" x="1623" y="68"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="na6-SL-7hv">
@@ -177,6 +181,42 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G6v-KZ-q1W">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="labelColor"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" red="0.022451073232323204" green="0.022451073232323204" blue="0.022451073232323204" alpha="0.95320260761589404" colorSpace="custom" customColorSpace="displayP3"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                            <barButtonItemAppearance key="buttonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.02245107323" green="0.02245107323" blue="0.02245107323" alpha="0.95320260759999997" colorSpace="custom" customColorSpace="displayP3"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                            <barButtonItemAppearance key="buttonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -190,11 +230,14 @@
     </scenes>
     <resources>
         <namedColor name="Background Color">
-            <color red="0.95999997854232788" green="1" blue="0.87999999523162842" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.93900001049041748" green="0.97899997234344482" blue="0.96300005912780762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Card Background Color">
-            <color red="0.68300002813339233" green="0.9179999828338623" blue="0.53799998760223389" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.78299999237060547" green="0.9179999828338623" blue="0.82800000905990601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
