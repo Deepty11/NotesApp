@@ -24,6 +24,7 @@
 		BF7C71C827FD67EA00723BEE /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C71C727FD67EA00723BEE /* NotesTableViewCell.swift */; };
 		BF7C71CA27FD9EC100723BEE /* AddNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C71C927FD9EC100723BEE /* AddNoteTableViewCell.swift */; };
 		FD27422F2800BE870068159B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD27422D2800BE870068159B /* Main.storyboard */; };
+		FD6435F428048FC300137173 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6435F328048FC300137173 /* AppState.swift */; };
 		FDC57F432802C28D008D51CA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC57F422802C28D008D51CA /* CardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		CEEE3F29DDAA447C22C3CAD7 /* Pods_NotesApp_NotesAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotesApp_NotesAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5584D5512A1F88DF15AAF8C /* Pods-NotesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesApp.release.xcconfig"; path = "Target Support Files/Pods-NotesApp/Pods-NotesApp.release.xcconfig"; sourceTree = "<group>"; };
 		FD27422E2800BE870068159B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD6435F328048FC300137173 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FD769E1476FFAA6AA94EB3A0 /* Pods-NotesApp-NotesAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesApp-NotesAppUITests.release.xcconfig"; path = "Target Support Files/Pods-NotesApp-NotesAppUITests/Pods-NotesApp-NotesAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FDC57F422802C28D008D51CA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 		BF3AD2E027FC126300002E53 /* NotesApp */ = {
 			isa = PBXGroup;
 			children = (
+				FD6435F228048F9E00137173 /* Services */,
 				FDC57F3F2802C211008D51CA /* Views */,
 				FD2742302800BEC10068159B /* Storyboards */,
 				BF7C71C627FD676C00723BEE /* Cell */,
@@ -215,6 +218,14 @@
 				BF3AD2EC27FC126800002E53 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FD6435F228048F9E00137173 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FD6435F328048FC300137173 /* AppState.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FDC57F3F2802C211008D51CA /* Views */ = {
@@ -465,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF3AD31627FC1FE900002E53 /* NotesListViewController.swift in Sources */,
+				FD6435F428048FC300137173 /* AppState.swift in Sources */,
 				FDC57F432802C28D008D51CA /* CardView.swift in Sources */,
 				BF3AD2E627FC126300002E53 /* ViewController.swift in Sources */,
 				BF3AD2E227FC126300002E53 /* AppDelegate.swift in Sources */,
