@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K2a-Ed-N1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K2a-Ed-N1y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Notes List View Controller-->
+        <!--Quiz List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="NotesListViewController" customModule="NotesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="QuizListViewController" customModule="NotesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,18 +32,18 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NotesTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotesTableViewCell" rowHeight="388" id="3Jp-7e-qPs" customClass="NotesTableViewCell" customModule="NotesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="388"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NotesTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizTableViewCell" rowHeight="209" id="3Jp-7e-qPs" customClass="QuizTableViewCell" customModule="NotesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="209"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Jp-7e-qPs" id="HcN-FW-pFT">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="388"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="209"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vC0-lv-C1B" customClass="CardView" customModule="NotesApp" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="7" width="384" height="379"/>
+                                                    <rect key="frame" x="15" y="7" width="384" height="200"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wf6-tv-fib">
-                                                            <rect key="frame" x="0.0" y="271" width="384" height="108"/>
+                                                            <rect key="frame" x="0.0" y="92" width="384" height="108"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-z8-TSD">
                                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="54"/>
@@ -120,7 +120,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRu-j2-wqp">
-                                                            <rect key="frame" x="5" y="56" width="374" height="210"/>
+                                                            <rect key="frame" x="5" y="56" width="374" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -134,17 +134,17 @@
                                                         <constraint firstItem="Wf6-tv-fib" firstAttribute="leading" secondItem="vC0-lv-C1B" secondAttribute="leading" id="PoG-fv-VX9"/>
                                                         <constraint firstItem="lRu-j2-wqp" firstAttribute="top" secondItem="jwv-Lr-PB4" secondAttribute="bottom" constant="8" id="QvD-tA-8GY"/>
                                                         <constraint firstAttribute="trailing" secondItem="Wf6-tv-fib" secondAttribute="trailing" id="TPZ-0E-ZMh"/>
-                                                        <constraint firstItem="Wf6-tv-fib" firstAttribute="top" secondItem="lRu-j2-wqp" secondAttribute="bottom" constant="5" id="bcj-BP-zaG"/>
+                                                        <constraint firstItem="Wf6-tv-fib" firstAttribute="top" secondItem="lRu-j2-wqp" secondAttribute="bottom" constant="10" id="bcj-BP-zaG"/>
                                                         <constraint firstAttribute="bottom" secondItem="Wf6-tv-fib" secondAttribute="bottom" id="l4a-wm-wkp"/>
                                                         <constraint firstAttribute="trailing" secondItem="lRu-j2-wqp" secondAttribute="trailing" constant="5" id="l8G-pP-924"/>
                                                         <constraint firstItem="jwv-Lr-PB4" firstAttribute="top" secondItem="vC0-lv-C1B" secondAttribute="top" constant="8" id="sP5-lA-YpG"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMD-ec-aK9" customClass="CardView" customModule="NotesApp" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="7" width="384" height="379"/>
+                                                    <rect key="frame" x="15" y="7" width="384" height="200"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbZ-m9-NyP">
-                                                            <rect key="frame" x="5" y="5" width="374" height="369"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbZ-m9-NyP">
+                                                            <rect key="frame" x="5" y="20" width="374" height="160"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -152,10 +152,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" name="Card Background Color"/>
                                                     <constraints>
-                                                        <constraint firstItem="VbZ-m9-NyP" firstAttribute="top" secondItem="TMD-ec-aK9" secondAttribute="top" constant="5" id="CIB-Po-m2j"/>
+                                                        <constraint firstItem="VbZ-m9-NyP" firstAttribute="top" secondItem="TMD-ec-aK9" secondAttribute="top" constant="20" id="CIB-Po-m2j"/>
                                                         <constraint firstAttribute="trailing" secondItem="VbZ-m9-NyP" secondAttribute="trailing" constant="5" id="Kxy-Kb-gV0"/>
                                                         <constraint firstItem="VbZ-m9-NyP" firstAttribute="leading" secondItem="TMD-ec-aK9" secondAttribute="leading" constant="5" id="VBY-n3-u8n"/>
-                                                        <constraint firstAttribute="bottom" secondItem="VbZ-m9-NyP" secondAttribute="bottom" constant="5" id="paU-bK-bB7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="VbZ-m9-NyP" secondAttribute="bottom" constant="20" id="sPO-fu-Uf5"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -172,13 +172,14 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="AnswerView" destination="vC0-lv-C1B" id="iR1-Mp-I9z"/>
                                             <outlet property="answerLabel" destination="lRu-j2-wqp" id="d1X-bO-Fp4"/>
+                                            <outlet property="answerView" destination="vC0-lv-C1B" id="Kzw-6w-F8K"/>
                                             <outlet property="checkIconImageView" destination="wIg-DM-Ajc" id="H3m-Lg-iLR"/>
-                                            <outlet property="commonAnswerView" destination="hzg-Bl-9uK" id="Hde-Uz-o2P"/>
+                                            <outlet property="commonQuizView" destination="hzg-Bl-9uK" id="Pm9-2A-rXL"/>
                                             <outlet property="crossIconImageView" destination="lmS-RU-7sN" id="ddf-ML-0wS"/>
+                                            <outlet property="questionLabel" destination="VbZ-m9-NyP" id="VhC-Jj-0g3"/>
                                             <outlet property="questionView" destination="TMD-ec-aK9" id="MDc-EI-rv7"/>
-                                            <outlet property="uncommonAnswerView" destination="ucR-z8-TSD" id="vwH-5W-aYT"/>
+                                            <outlet property="uncommonQuizView" destination="ucR-z8-TSD" id="ucN-EF-TXj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -198,7 +199,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="nDp-uc-rcy"/>
                     <connections>
-                        <outlet property="emptyNotesLabel" destination="cw7-OK-qKf" id="PNv-TR-Ffq"/>
+                        <outlet property="emptyQuizLabel" destination="cw7-OK-qKf" id="0Do-fC-0Pf"/>
                         <outlet property="tableView" destination="3Il-6H-3nn" id="u5o-eF-U2f"/>
                     </connections>
                 </viewController>

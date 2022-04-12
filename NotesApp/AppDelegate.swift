@@ -6,11 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    var realm =  try! Realm()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13.0, *) {
@@ -24,6 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().barTintColor = UIColor(named: "NavigationBar BG Color")
             UINavigationBar.appearance().tintColor = .white
         }
+        
+        let quizEntries = realm.objects(Quiz.self)
+        if quizEntries.isEmpty{
+            //save dummy quiz from JSON to realm
+            let quizArray = JSONManager.shared.parseJson()
+            DatabaseManager.shared.storeJSONParsedQuiz(with: quizArray)
+        }
+        
         return true
     }
 

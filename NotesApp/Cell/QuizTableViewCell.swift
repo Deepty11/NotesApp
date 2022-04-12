@@ -2,21 +2,21 @@
 //  NotesTableViewCell.swift
 //  NotesApp
 //
-//  Created by Rehnuma on 6/4/22.
+//  Created by Rehnuma Reza on 6/4/22.
 //
 
 import UIKit
 
-class NotesTableViewCell: UITableViewCell {
+class QuizTableViewCell: UITableViewCell {
 
     @IBOutlet weak var questionView: CardView!
-    @IBOutlet weak var pageTextView: UITextView!
-    @IBOutlet weak var AnswerView: CardView!
-    @IBOutlet weak var uncommonAnswerView: UIView!
-    @IBOutlet weak var commonAnswerView: UIView!
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerView: CardView!
     @IBOutlet weak var crossIconImageView: UIImageView!
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var checkIconImageView: UIImageView!
+    @IBOutlet weak var uncommonQuizView: UIView!
+    @IBOutlet weak var commonQuizView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

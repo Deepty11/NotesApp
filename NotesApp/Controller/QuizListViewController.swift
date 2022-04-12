@@ -8,15 +8,17 @@
 import UIKit
 import RealmSwift
 
-class NotesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class QuizListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
-    @IBOutlet weak var emptyNotesLabel: UILabel!
+   
+    @IBOutlet weak var emptyQuizLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     let realm = try! Realm()
-    var noteSources : [Note]!
-    var notes: [Note]{
-        return Array(realm.objects(Note.self))
+    var quizSources : [Quiz]!
+    var quizes: [Quiz]{
+        return Array(realm.objects(Quiz.self))
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -24,16 +26,20 @@ class NotesListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.dataSource = self
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressed))
         self.tableView.addGestureRecognizer(longPress)
-        self.noteSources = notes
+        self.quizSources = quizes
+        /// initializing answerFlipped false for each quiz
+        for _ in quizSources{
+            AppState.shared.answerViewDisplayed.append(false)
+        }
         self.tableView.reloadData()
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.noteSources = notes
-        self.tableView.isHidden = noteSources.isEmpty ? true : false
-        self.emptyNotesLabel.isHidden = noteSources.isEmpty ? false : true
+        self.quizSources = quizes
+        self.tableView.isHidden = quizSources.isEmpty ? true : false
+        self.emptyQuizLabel.isHidden = quizSources.isEmpty ? false : true
         self.tableView.reloadData()
     }
     
@@ -86,10 +92,10 @@ class NotesListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.present(alert, animated: true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                 self.dismiss(animated: true) {
-                    self.noteSources  = self.notes
-                    if self.noteSources.isEmpty{
+                    self.quizSources  = self.quizes
+                    if self.quizSources.isEmpty{
                         self.tableView.isHidden = true
-                        self.emptyNotesLabel.isHidden = false
+                        self.emptyQuizLabel.isHidden = false
                     }
                     self.tableView.reloadData()
                 }
@@ -111,35 +117,83 @@ class NotesListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return noteSources.count
+        return quizSources.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "NotesTableViewCell", for: indexPath) as? NotesTableViewCell{
-            cell.pageTextView.text = noteSources[indexPath.row].frontPage
-            cell.pageTextView.textContainer.lineBreakMode = .byTruncatingTail
-            cell.selectionStyle = .none
-            return cell
-            
+        if quizSources[indexPath.row].isKnown == false{
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "QuizTableViewCell", for: indexPath) as? QuizTableViewCell{
+                if AppState.shared.answerViewDisplayed[indexPath.row] == false{
+                    cell.questionView.isHidden = false
+                    cell.answerView.isHidden = true
+                    cell.questionLabel.text = quizSources[indexPath.row].question
+                } else{
+                    cell.questionView.isHidden = true
+                    cell.answerView.isHidden = false
+                    cell.answerLabel.text = quizSources[indexPath.row].answer
+                    let tp = UITapGestureRecognizer(target: self, action: #selector(handleCommonQuizViewTapped))
+                    let tp2 = UITapGestureRecognizer(target: self, action: #selector(handleUnCommonQuizViewTapped))
+                    cell.commonQuizView.addGestureRecognizer(tp)
+                    cell.uncommonQuizView.addGestureRecognizer(tp2)
+                    
+                }
+                cell.selectionStyle = .none
+                return cell
+                
+            }
         }
+        
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController{
-            vc.previousNote = noteSources[indexPath.row]
-            vc.storeType = .updateNote
-            self.navigationController?.pushViewController(vc, animated: true)
+    @objc func handleCommonQuizViewTapped(sender: UITapGestureRecognizer){
+        if let indexPath = tableView.indexPathForRow(at: sender.location(in: tableView)){
+            
+        }
+        
+    }
+    
+    @objc func handleUnCommonQuizViewTapped(sender: UITapGestureRecognizer){
+        if let indexPath = tableView.indexPathForRow(at: sender.location(in: tableView)){
+            
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+    //selecting on cell will flip the view
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if let vc = storyboard?.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController{
+//            vc.previousNote = noteSources[indexPath.row]
+//            vc.storeType = .updateNote
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+        if !AppState.shared.answerViewDisplayed[indexPath.row]{
+            if let cell =  tableView.cellForRow(at: indexPath) as? QuizTableViewCell{
+                AppState.shared.answerViewDisplayed[indexPath.row] = true
+                UIView.transition(with: cell.questionView,
+                                  duration: 0.25,
+                                  options: AppState.shared.transitionOption) {
+                    cell.questionView.isHidden = true
+                   
+                }
+                
+                UIView.transition(with: cell.answerView,
+                                  duration: 0.25,
+                                  options: AppState.shared.transitionOption) {
+                    
+                    cell.answerView.isHidden = false
+                    cell.answerView.autoresizesSubviews = true
+                    
+                } completion: { _ in
+                    //self.tableView.reloadRows(at: [indexPath], with: .none)
+                    //cell.answerView.autoresizesSubviews = true
+                }
+                
+                
+            }
+        }
+        
+        
     }
-
-    
-
-    
+  
 
 }
