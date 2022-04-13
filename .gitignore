@@ -4,11 +4,12 @@
 ### macOS ###
 # General
 .DS_Store
+*.DS_Store
 
-
+ios_system_builds/*
 ## User settings
 xcuserdata/
-
+*.pbxuser
 
 ## Obj-C/Swift specific
 *.hmap
@@ -26,6 +27,7 @@ playground.xcworkspace
 # CocoaPods
 Pods/
 Podfile.lock
+DerivedData/*
 
 # fastlane
 # It is recommended to not store the screenshots in the git repo.
