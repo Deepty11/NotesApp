@@ -43,6 +43,13 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.reloadData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        for (id,_) in AppState.shared.answerViewDisplayed.enumerated(){
+            AppState.shared.answerViewDisplayed[id] = false
+        }
+    }
+    
     private func configureNavigationBar(){
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.title = "Notes"
@@ -123,20 +130,28 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if quizSources[indexPath.row].isKnown == false{
             if let cell = tableView.dequeueReusableCell(withIdentifier: "QuizTableViewCell", for: indexPath) as? QuizTableViewCell{
-                if AppState.shared.answerViewDisplayed[indexPath.row] == false{
-                    cell.questionView.isHidden = false
-                    cell.answerView.isHidden = true
-                    cell.questionLabel.text = quizSources[indexPath.row].question
-                } else{
-                    cell.questionView.isHidden = true
-                    cell.answerView.isHidden = false
-                    cell.answerLabel.text = quizSources[indexPath.row].answer
-                    let tp = UITapGestureRecognizer(target: self, action: #selector(handleCommonQuizViewTapped))
-                    let tp2 = UITapGestureRecognizer(target: self, action: #selector(handleUnCommonQuizViewTapped))
-                    cell.commonQuizView.addGestureRecognizer(tp)
-                    cell.uncommonQuizView.addGestureRecognizer(tp2)
-                    
-                }
+                cell.questionLabel.text = quizSources[indexPath.row].question
+                cell.answerLabel.text = quizSources[indexPath.row].answer
+                let tp = UITapGestureRecognizer(target: self, action: #selector(handleCommonQuizViewTapped))
+                let tp2 = UITapGestureRecognizer(target: self, action: #selector(handleUnCommonQuizViewTapped))
+                cell.commonQuizView.addGestureRecognizer(tp)
+                cell.uncommonQuizView.addGestureRecognizer(tp2)
+                cell.questionView.isHidden = false
+                cell.answerView.isHidden = true
+//                if AppState.shared.answerViewDisplayed[indexPath.row] == false{
+//                    cell.questionView.isHidden = false
+//                    cell.answerView.isHidden = true
+//                    cell.questionLabel.text = quizSources[indexPath.row].question
+//                } else{
+//                    cell.questionView.isHidden = true
+//                    cell.answerView.isHidden = false
+//                    cell.answerLabel.text = quizSources[indexPath.row].answer
+//                    let tp = UITapGestureRecognizer(target: self, action: #selector(handleCommonQuizViewTapped))
+//                    let tp2 = UITapGestureRecognizer(target: self, action: #selector(handleUnCommonQuizViewTapped))
+//                    cell.commonQuizView.addGestureRecognizer(tp)
+//                    cell.uncommonQuizView.addGestureRecognizer(tp2)
+//
+//                }
                 cell.selectionStyle = .none
                 return cell
                 
@@ -161,11 +176,6 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
     
     //selecting on cell will flip the view
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let vc = storyboard?.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController{
-//            vc.previousNote = noteSources[indexPath.row]
-//            vc.storeType = .updateNote
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
         if !AppState.shared.answerViewDisplayed[indexPath.row]{
             if let cell =  tableView.cellForRow(at: indexPath) as? QuizTableViewCell{
                 AppState.shared.answerViewDisplayed[indexPath.row] = true
@@ -181,11 +191,6 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
                                   options: AppState.shared.transitionOption) {
                     
                     cell.answerView.isHidden = false
-                    cell.answerView.autoresizesSubviews = true
-                    
-                } completion: { _ in
-                    //self.tableView.reloadRows(at: [indexPath], with: .none)
-                    //cell.answerView.autoresizesSubviews = true
                 }
                 
                 
