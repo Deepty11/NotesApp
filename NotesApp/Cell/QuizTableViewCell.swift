@@ -26,5 +26,12 @@ class QuizTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    func configureIconColor(){
+        self.checkIconImageView.image = self.checkIconImageView.image?.withRenderingMode(.alwaysTemplate)
+        self.checkIconImageView.tintColor = .green
+        self.crossIconImageView.image = self.crossIconImageView.image?.withRenderingMode(.alwaysTemplate)
+        self.crossIconImageView.tintColor = .red
+    }
 
 }

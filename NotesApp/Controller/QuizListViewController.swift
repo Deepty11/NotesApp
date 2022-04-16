@@ -136,8 +136,8 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
                 let tp2 = UITapGestureRecognizer(target: self, action: #selector(handleUnCommonQuizViewTapped))
                 cell.commonQuizView.addGestureRecognizer(tp)
                 cell.uncommonQuizView.addGestureRecognizer(tp2)
-                cell.questionView.isHidden = false
-                cell.answerView.isHidden = true
+                cell.questionView.isHidden = AppState.shared.answerViewDisplayed[indexPath.row] ? true : false
+                cell.answerView.isHidden = AppState.shared.answerViewDisplayed[indexPath.row] ? false : true
 //                if AppState.shared.answerViewDisplayed[indexPath.row] == false{
 //                    cell.questionView.isHidden = false
 //                    cell.answerView.isHidden = true
@@ -170,13 +170,31 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @objc func handleUnCommonQuizViewTapped(sender: UITapGestureRecognizer){
         if let indexPath = tableView.indexPathForRow(at: sender.location(in: tableView)){
-            
+            tableView.beginUpdates()
+            if let cell = tableView.cellForRow(at: indexPath) as? QuizTableViewCell{
+                AppState.shared.answerViewDisplayed[indexPath.row] = false
+                UIView.transition(with: cell.answerView,
+                                  duration: 0.25,
+                                  options: AppState.shared.transitionOption) {
+                    cell.answerView.isHidden = true
+                   
+                }
+                
+                UIView.transition(with: cell.questionView,
+                                  duration: 0.25,
+                                  options: AppState.shared.transitionOption) {
+                    
+                    cell.questionView.isHidden = false
+                }
+            }
+            tableView.endUpdates()
         }
     }
     
     //selecting on cell will flip the view
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !AppState.shared.answerViewDisplayed[indexPath.row]{
+            tableView.beginUpdates()
             if let cell =  tableView.cellForRow(at: indexPath) as? QuizTableViewCell{
                 AppState.shared.answerViewDisplayed[indexPath.row] = true
                 UIView.transition(with: cell.questionView,
@@ -191,10 +209,12 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
                                   options: AppState.shared.transitionOption) {
                     
                     cell.answerView.isHidden = false
+                    cell.configureIconColor()
                 }
                 
                 
             }
+            tableView.endUpdates()
         }
         
         

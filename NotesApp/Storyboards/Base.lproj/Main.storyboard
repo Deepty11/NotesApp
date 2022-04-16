@@ -42,24 +42,24 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vC0-lv-C1B" customClass="CardView" customModule="NotesApp" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="7" width="384" height="200"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wf6-tv-fib">
-                                                            <rect key="frame" x="0.0" y="92" width="384" height="108"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wf6-tv-fib">
+                                                            <rect key="frame" x="0.0" y="132" width="384" height="68"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-z8-TSD">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="54"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="34"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XKw-wV-Wqu">
-                                                                            <rect key="frame" x="2" y="2" width="380" height="50"/>
+                                                                            <rect key="frame" x="2" y="2" width="380" height="30"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cross Icon" translatesAutoresizingMaskIntoConstraints="NO" id="lmS-RU-7sN">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="lmS-RU-7sN" secondAttribute="height" multiplier="1:1" id="QX1-pc-jsO"/>
-                                                                                        <constraint firstAttribute="width" constant="50" id="stQ-Ap-Utj"/>
+                                                                                        <constraint firstAttribute="width" constant="30" id="stQ-Ap-Utj"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I didn't know this answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhI-Z4-eGx">
-                                                                                    <rect key="frame" x="58" y="0.0" width="322" height="50"/>
+                                                                                    <rect key="frame" x="38" y="0.0" width="342" height="30"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -76,20 +76,20 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzg-Bl-9uK">
-                                                                    <rect key="frame" x="0.0" y="54" width="384" height="54"/>
+                                                                    <rect key="frame" x="0.0" y="34" width="384" height="34"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="52c-id-g85">
-                                                                            <rect key="frame" x="2" y="2" width="380" height="50"/>
+                                                                            <rect key="frame" x="2" y="2" width="380" height="30"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Correct Icon" translatesAutoresizingMaskIntoConstraints="NO" id="wIg-DM-Ajc">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="wIg-DM-Ajc" secondAttribute="height" multiplier="1:1" id="DtA-Kc-HCp"/>
-                                                                                        <constraint firstAttribute="width" constant="50" id="vqH-LZ-sa8"/>
+                                                                                        <constraint firstAttribute="width" constant="30" id="vqH-LZ-sa8"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes, I knew this answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LX4-Qb-vec">
-                                                                                    <rect key="frame" x="58" y="15" width="322" height="20.5"/>
+                                                                                    <rect key="frame" x="38" y="5" width="342" height="20.5"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -106,9 +106,6 @@
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="108" id="bRF-Cz-KGM"/>
-                                                            </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwv-Lr-PB4">
                                                             <rect key="frame" x="5" y="8" width="374" height="40"/>
@@ -120,7 +117,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRu-j2-wqp">
-                                                            <rect key="frame" x="5" y="56" width="374" height="26"/>
+                                                            <rect key="frame" x="5" y="56" width="374" height="66"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
