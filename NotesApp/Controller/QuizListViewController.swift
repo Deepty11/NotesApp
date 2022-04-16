@@ -52,6 +52,9 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func handlePracticeButtonTapped(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "PracticePageViewController") as? PracticePageViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     private func configureNavigationBar(){

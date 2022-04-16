@@ -29,6 +29,8 @@
 		BF7C71CA27FD9EC100723BEE /* AddNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C71C927FD9EC100723BEE /* AddNoteTableViewCell.swift */; };
 		FD27422F2800BE870068159B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD27422D2800BE870068159B /* Main.storyboard */; };
 		FD6435F428048FC300137173 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6435F328048FC300137173 /* JSONManager.swift */; };
+		FD894AAD280B3BA300C43AF8 /* PracticePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD894AAC280B3BA300C43AF8 /* PracticePageViewController.swift */; };
+		FD894AAF280B3E3500C43AF8 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD894AAE280B3E3500C43AF8 /* CardViewController.swift */; };
 		FDC57F432802C28D008D51CA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC57F422802C28D008D51CA /* CardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		FD27422E2800BE870068159B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD6435F328048FC300137173 /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		FD769E1476FFAA6AA94EB3A0 /* Pods-NotesApp-NotesAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesApp-NotesAppUITests.release.xcconfig"; path = "Target Support Files/Pods-NotesApp-NotesAppUITests/Pods-NotesApp-NotesAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FD894AAC280B3BA300C43AF8 /* PracticePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePageViewController.swift; sourceTree = "<group>"; };
+		FD894AAE280B3E3500C43AF8 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		FDC57F422802C28D008D51CA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +212,8 @@
 				BF3AD2E527FC126300002E53 /* ViewController.swift */,
 				BF3AD31527FC1FE900002E53 /* QuizListViewController.swift */,
 				BF3AD31727FC31FD00002E53 /* AddNoteViewController.swift */,
+				FD894AAC280B3BA300C43AF8 /* PracticePageViewController.swift */,
+				FD894AAE280B3E3500C43AF8 /* CardViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -492,12 +498,14 @@
 				BF60D23A2805223F00325024 /* DatabaseManager.swift in Sources */,
 				BF60D23828051E5B00325024 /* Quiz.swift in Sources */,
 				FDC57F432802C28D008D51CA /* CardView.swift in Sources */,
+				FD894AAD280B3BA300C43AF8 /* PracticePageViewController.swift in Sources */,
 				BF3AD2E627FC126300002E53 /* ViewController.swift in Sources */,
 				BF3AD2E227FC126300002E53 /* AppDelegate.swift in Sources */,
 				BF3AD31827FC31FD00002E53 /* AddNoteViewController.swift in Sources */,
 				BF3AD2E427FC126300002E53 /* SceneDelegate.swift in Sources */,
 				BF60D23C280527EA00325024 /* AppState.swift in Sources */,
 				BF60D23628051D8F00325024 /* QuizJsonModel.swift in Sources */,
+				FD894AAF280B3E3500C43AF8 /* CardViewController.swift in Sources */,
 				BF7C71C827FD67EA00723BEE /* QuizTableViewCell.swift in Sources */,
 				BF7C71C527FD5C8B00723BEE /* Note.swift in Sources */,
 				BF7C71CA27FD9EC100723BEE /* AddNoteTableViewCell.swift in Sources */,
