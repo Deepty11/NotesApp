@@ -29,4 +29,20 @@ class DatabaseManager{
             print(error.localizedDescription)
         }
     }
+    
+    func updateLearningStatus(with status: Bool, of quiz: Quiz){
+        let quizTobeUpdated = realm.objects(Quiz.self).filter("question == %@", quiz.question ?? "")[0]
+        do{
+            try realm.write{
+                quizTobeUpdated.isKnown = status
+                realm.add(quizTobeUpdated)
+            }
+        }catch{
+            print(error.localizedDescription)
+        }
+    }
+    
+    func deleteQuiz(){
+        
+    }
 }

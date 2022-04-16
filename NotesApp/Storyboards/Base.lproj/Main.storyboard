@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Il-6H-3nn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="819.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -146,12 +146,34 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXP-kn-CkB">
+                                                            <rect key="frame" x="301" y="3" width="80" height="30"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1G-RK-0h2">
+                                                                    <rect key="frame" x="2" y="2" width="76" height="26"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                    <color key="textColor" name="crossIcon Color"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="f1G-RK-0h2" firstAttribute="leading" secondItem="FXP-kn-CkB" secondAttribute="leading" constant="2" id="4DT-cZ-o8T"/>
+                                                                <constraint firstAttribute="height" constant="30" id="4od-KY-eRw"/>
+                                                                <constraint firstAttribute="trailing" secondItem="f1G-RK-0h2" secondAttribute="trailing" constant="2" id="6pM-cl-bAt"/>
+                                                                <constraint firstItem="f1G-RK-0h2" firstAttribute="top" secondItem="FXP-kn-CkB" secondAttribute="top" constant="2" id="Z9M-rt-E02"/>
+                                                                <constraint firstAttribute="bottom" secondItem="f1G-RK-0h2" secondAttribute="bottom" constant="2" id="uvu-8g-FZy"/>
+                                                                <constraint firstAttribute="width" constant="80" id="yUG-CI-HOW"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" name="Card Background Color"/>
                                                     <constraints>
                                                         <constraint firstItem="VbZ-m9-NyP" firstAttribute="top" secondItem="TMD-ec-aK9" secondAttribute="top" constant="20" id="CIB-Po-m2j"/>
                                                         <constraint firstAttribute="trailing" secondItem="VbZ-m9-NyP" secondAttribute="trailing" constant="5" id="Kxy-Kb-gV0"/>
                                                         <constraint firstItem="VbZ-m9-NyP" firstAttribute="leading" secondItem="TMD-ec-aK9" secondAttribute="leading" constant="5" id="VBY-n3-u8n"/>
+                                                        <constraint firstItem="FXP-kn-CkB" firstAttribute="top" secondItem="TMD-ec-aK9" secondAttribute="top" constant="3" id="XMz-pJ-VwM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FXP-kn-CkB" secondAttribute="trailing" constant="3" id="f5q-Ys-2ou"/>
                                                         <constraint firstAttribute="bottom" secondItem="VbZ-m9-NyP" secondAttribute="bottom" constant="20" id="sPO-fu-Uf5"/>
                                                     </constraints>
                                                 </view>
@@ -174,6 +196,7 @@
                                             <outlet property="checkIconImageView" destination="wIg-DM-Ajc" id="H3m-Lg-iLR"/>
                                             <outlet property="commonQuizView" destination="hzg-Bl-9uK" id="Pm9-2A-rXL"/>
                                             <outlet property="crossIconImageView" destination="lmS-RU-7sN" id="ddf-ML-0wS"/>
+                                            <outlet property="learningView" destination="FXP-kn-CkB" id="Zic-OS-67M"/>
                                             <outlet property="questionLabel" destination="VbZ-m9-NyP" id="VhC-Jj-0g3"/>
                                             <outlet property="questionView" destination="TMD-ec-aK9" id="MDc-EI-rv7"/>
                                             <outlet property="uncommonQuizView" destination="ucR-z8-TSD" id="ucN-EF-TXj"/>
@@ -181,17 +204,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sB-jH-NYw">
+                                <rect key="frame" x="0.0" y="821.5" width="414" height="74.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <backgroundConfiguration key="background" cornerRadius="0.0">
+                                        <color key="backgroundColor" red="0.37266681922123845" green="0.38007765021627682" blue="0.5973045579110734" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Practice">
+                                            <attributes>
+                                                <font key="NSFont" size="17" name="Helvetica-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="handlePracticeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJK-YE-wCf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="Background Color"/>
                         <constraints>
                             <constraint firstItem="cw7-OK-qKf" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="1qE-m9-W1c"/>
-                            <constraint firstItem="3Il-6H-3nn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3kl-Aw-Vpk"/>
                             <constraint firstItem="cw7-OK-qKf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="AdJ-ng-ZAY"/>
                             <constraint firstItem="cw7-OK-qKf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BMt-lw-xfn"/>
                             <constraint firstItem="3Il-6H-3nn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ka2-FK-ZxL"/>
+                            <constraint firstItem="1sB-jH-NYw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QZK-RV-N5O"/>
+                            <constraint firstItem="1sB-jH-NYw" firstAttribute="top" secondItem="3Il-6H-3nn" secondAttribute="bottom" constant="2" id="Qft-Ab-9aZ"/>
+                            <constraint firstAttribute="bottom" secondItem="1sB-jH-NYw" secondAttribute="bottom" id="fAw-r9-xix"/>
                             <constraint firstItem="3Il-6H-3nn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kZ1-Z7-0pv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1sB-jH-NYw" secondAttribute="trailing" id="lFM-d7-GaO"/>
                             <constraint firstItem="3Il-6H-3nn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vpO-IJ-wYw"/>
+                            <constraint firstItem="1sB-jH-NYw" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5: 6" id="wVI-nh-hfQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nDp-uc-rcy"/>
@@ -310,6 +356,9 @@
         </namedColor>
         <namedColor name="Card Background Color">
             <color red="1" green="1" blue="0.7929999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="crossIcon Color">
+            <color red="1" green="0.29800000786781311" blue="0.30700001120567322" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

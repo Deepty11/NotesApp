@@ -13,6 +13,7 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
    
     @IBOutlet weak var emptyQuizLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
     let realm = try! Realm()
     var quizSources : [Quiz]!
     var quizes: [Quiz]{
@@ -24,8 +25,8 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
         configureNavigationBar()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressed))
-        self.tableView.addGestureRecognizer(longPress)
+//        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressed))
+//        self.tableView.addGestureRecognizer(longPress)
         self.quizSources = quizes
         /// initializing answerFlipped false for each quiz
         for _ in quizSources{
@@ -50,9 +51,12 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    @IBAction func handlePracticeButtonTapped(_ sender: Any) {
+    }
+    
     private func configureNavigationBar(){
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationItem.title = "Notes"
+        self.navigationItem.title = "Quizer"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                  target: self,
                                                                  action: #selector(addButtonTapped))
@@ -128,42 +132,38 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if quizSources[indexPath.row].isKnown == false{
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "QuizTableViewCell", for: indexPath) as? QuizTableViewCell{
-                cell.questionLabel.text = quizSources[indexPath.row].question
-                cell.answerLabel.text = quizSources[indexPath.row].answer
-                let tp = UITapGestureRecognizer(target: self, action: #selector(handleCommonQuizViewTapped))
-                let tp2 = UITapGestureRecognizer(target: self, action: #selector(handleUnCommonQuizViewTapped))
-                cell.commonQuizView.addGestureRecognizer(tp)
-                cell.uncommonQuizView.addGestureRecognizer(tp2)
-                cell.questionView.isHidden = AppState.shared.answerViewDisplayed[indexPath.row] ? true : false
-                cell.answerView.isHidden = AppState.shared.answerViewDisplayed[indexPath.row] ? false : true
-//                if AppState.shared.answerViewDisplayed[indexPath.row] == false{
-//                    cell.questionView.isHidden = false
-//                    cell.answerView.isHidden = true
-//                    cell.questionLabel.text = quizSources[indexPath.row].question
-//                } else{
-//                    cell.questionView.isHidden = true
-//                    cell.answerView.isHidden = false
-//                    cell.answerLabel.text = quizSources[indexPath.row].answer
-//                    let tp = UITapGestureRecognizer(target: self, action: #selector(handleCommonQuizViewTapped))
-//                    let tp2 = UITapGestureRecognizer(target: self, action: #selector(handleUnCommonQuizViewTapped))
-//                    cell.commonQuizView.addGestureRecognizer(tp)
-//                    cell.uncommonQuizView.addGestureRecognizer(tp2)
-//
-//                }
-                cell.selectionStyle = .none
-                return cell
-                
-            }
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "QuizTableViewCell", for: indexPath) as? QuizTableViewCell{
+            
+            cell.questionLabel.text = quizSources[indexPath.row].question
+            cell.answerLabel.text = quizSources[indexPath.row].answer
+            let tp = UITapGestureRecognizer(target: self, action: #selector(handleCommonQuizViewTapped))
+            let tp2 = UITapGestureRecognizer(target: self, action: #selector(handleUnCommonQuizViewTapped))
+            cell.commonQuizView.addGestureRecognizer(tp)
+            cell.uncommonQuizView.addGestureRecognizer(tp2)
+            cell.questionView.isHidden = AppState.shared.answerViewDisplayed[indexPath.row] ? true : false
+            cell.answerView.isHidden = AppState.shared.answerViewDisplayed[indexPath.row] ? false : true
+            cell.learningView.isHidden = quizSources[indexPath.row].isKnown ? true : false
+            
+            cell.selectionStyle = .none
+            return cell
+            
         }
+        
         
         return UITableViewCell()
     }
     
     @objc func handleCommonQuizViewTapped(sender: UITapGestureRecognizer){
         if let indexPath = tableView.indexPathForRow(at: sender.location(in: tableView)){
-            
+            tableView.beginUpdates()
+            if let cell = tableView.cellForRow(at: indexPath) as? QuizTableViewCell{
+                AppState.shared.answerViewDisplayed[indexPath.row] = false
+                DatabaseManager.shared.updateLearningStatus(with: true, of: quizSources[indexPath.row])
+                self.flipCardOnCell(from: cell.answerView, to: cell.questionView)
+                cell.learningView.isHidden = quizSources[indexPath.row].isKnown ? true : false
+            }
+            tableView.endUpdates()
         }
         
     }
@@ -173,19 +173,9 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
             tableView.beginUpdates()
             if let cell = tableView.cellForRow(at: indexPath) as? QuizTableViewCell{
                 AppState.shared.answerViewDisplayed[indexPath.row] = false
-                UIView.transition(with: cell.answerView,
-                                  duration: 0.25,
-                                  options: AppState.shared.transitionOption) {
-                    cell.answerView.isHidden = true
-                   
-                }
-                
-                UIView.transition(with: cell.questionView,
-                                  duration: 0.25,
-                                  options: AppState.shared.transitionOption) {
-                    
-                    cell.questionView.isHidden = false
-                }
+                DatabaseManager.shared.updateLearningStatus(with: false, of: quizSources[indexPath.row])
+                self.flipCardOnCell(from: cell.answerView, to: cell.questionView)
+                cell.learningView.isHidden = quizSources[indexPath.row].isKnown ? true : false
             }
             tableView.endUpdates()
         }
@@ -197,27 +187,29 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
             tableView.beginUpdates()
             if let cell =  tableView.cellForRow(at: indexPath) as? QuizTableViewCell{
                 AppState.shared.answerViewDisplayed[indexPath.row] = true
-                UIView.transition(with: cell.questionView,
-                                  duration: 0.25,
-                                  options: AppState.shared.transitionOption) {
-                    cell.questionView.isHidden = true
-                   
-                }
-                
-                UIView.transition(with: cell.answerView,
-                                  duration: 0.25,
-                                  options: AppState.shared.transitionOption) {
-                    
-                    cell.answerView.isHidden = false
-                    cell.configureIconColor()
-                }
-                
-                
+                self.flipCardOnCell(from: cell.questionView, to: cell.answerView)
+                cell.learningView.isHidden = quizSources[indexPath.row].isKnown ? true : false
             }
             tableView.endUpdates()
         }
         
+    }
+    
+    func flipCardOnCell(from source: UIView, to destination: UIView){
+        UIView.transition(with: source,
+                          duration: 0.25,
+                          options: AppState.shared.transitionOption) {
+            source.isHidden = true
+            
+        }
         
+        UIView.transition(with: destination,
+                          duration: 0.25,
+                          options: AppState.shared.transitionOption) {
+            
+            destination.isHidden = false
+        }
+            
     }
   
 

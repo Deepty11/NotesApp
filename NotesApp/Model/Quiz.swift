@@ -2,7 +2,7 @@
 //  Quiz.swift
 //  NotesApp
 //
-//  Created by rehnuma.deepty on 12/4/22.
+//  Created by Rehnuma Reza on 12/4/22.
 //
 
 import Foundation
