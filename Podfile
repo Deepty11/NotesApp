@@ -1,18 +1,18 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'NotesApp' do
+target 'ExQuizIt' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   pod "RealmSwift"
 
-  target 'NotesAppTests' do
+  target 'ExQuizItTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'NotesAppUITests' do
+  target 'ExQuizItUITests' do
     # Pods for testing
   end
 
