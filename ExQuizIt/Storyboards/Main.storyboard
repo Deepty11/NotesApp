@@ -13,7 +13,7 @@
         <!--Quiz List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="QuizListViewController" customModule="NotesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="QuizListViewController" customModule="ExQuizIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,14 +32,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NotesTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizTableViewCell" rowHeight="209" id="3Jp-7e-qPs" customClass="QuizTableViewCell" customModule="NotesApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NotesTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizTableViewCell" rowHeight="209" id="3Jp-7e-qPs" customClass="QuizTableViewCell" customModule="ExQuizIt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="209"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Jp-7e-qPs" id="HcN-FW-pFT">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="209"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vC0-lv-C1B" customClass="CardView" customModule="NotesApp" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vC0-lv-C1B" customClass="CardView" customModule="ExQuizIt" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="7" width="384" height="200"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wf6-tv-fib">
@@ -135,11 +135,11 @@
                                                         <constraint firstItem="jwv-Lr-PB4" firstAttribute="top" secondItem="vC0-lv-C1B" secondAttribute="top" constant="8" id="sP5-lA-YpG"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMD-ec-aK9" customClass="CardView" customModule="NotesApp" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMD-ec-aK9" customClass="CardView" customModule="ExQuizIt" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="7" width="384" height="200"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbZ-m9-NyP">
-                                                            <rect key="frame" x="5" y="20" width="374" height="160"/>
+                                                            <rect key="frame" x="20" y="20" width="344" height="160"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -168,8 +168,8 @@
                                                     <color key="backgroundColor" name="Card Background Color"/>
                                                     <constraints>
                                                         <constraint firstItem="VbZ-m9-NyP" firstAttribute="top" secondItem="TMD-ec-aK9" secondAttribute="top" constant="20" id="CIB-Po-m2j"/>
-                                                        <constraint firstAttribute="trailing" secondItem="VbZ-m9-NyP" secondAttribute="trailing" constant="5" id="Kxy-Kb-gV0"/>
-                                                        <constraint firstItem="VbZ-m9-NyP" firstAttribute="leading" secondItem="TMD-ec-aK9" secondAttribute="leading" constant="5" id="VBY-n3-u8n"/>
+                                                        <constraint firstAttribute="trailing" secondItem="VbZ-m9-NyP" secondAttribute="trailing" constant="20" id="Kxy-Kb-gV0"/>
+                                                        <constraint firstItem="VbZ-m9-NyP" firstAttribute="leading" secondItem="TMD-ec-aK9" secondAttribute="leading" constant="20" id="VBY-n3-u8n"/>
                                                         <constraint firstItem="FXP-kn-CkB" firstAttribute="top" secondItem="TMD-ec-aK9" secondAttribute="top" constant="3" id="XMz-pJ-VwM"/>
                                                         <constraint firstAttribute="trailing" secondItem="FXP-kn-CkB" secondAttribute="trailing" constant="3" id="f5q-Ys-2ou"/>
                                                         <constraint firstAttribute="bottom" secondItem="VbZ-m9-NyP" secondAttribute="bottom" constant="20" id="sPO-fu-Uf5"/>
@@ -248,10 +248,10 @@
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="67.633928571428569"/>
         </scene>
-        <!--Add Note View Controller-->
+        <!--Add Quiz View Controller-->
         <scene sceneID="xTN-e0-eBa">
             <objects>
-                <viewController storyboardIdentifier="AddNoteViewController" id="TWH-gr-uiC" customClass="AddNoteViewController" customModule="NotesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddQuizViewController" id="TWH-gr-uiC" customClass="AddQuizViewController" customModule="ExQuizIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CW1-3C-v6Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -261,7 +261,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddNoteTableViewCell" rowHeight="400" id="oJp-xw-LpT" customClass="AddNoteTableViewCell" customModule="NotesApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddQuizTableViewCell" rowHeight="400" id="oJp-xw-LpT" customClass="AddQuizTableViewCell" customModule="ExQuizIt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oJp-xw-LpT" id="SA7-BA-2xA">
@@ -297,8 +297,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="cellView" destination="S9I-KM-dk7" id="aV6-g9-fw6"/>
-                                            <outlet property="pageTextView" destination="O4f-QG-7pH" id="JDr-0V-buh"/>
+                                            <outlet property="cellView" destination="S9I-KM-dk7" id="08E-W2-UkJ"/>
+                                            <outlet property="quizTextView" destination="O4f-QG-7pH" id="n29-zP-kgL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -326,7 +326,7 @@
         <!--Practice Page View Controller-->
         <scene sceneID="9Gn-RT-fp2">
             <objects>
-                <pageViewController storyboardIdentifier="PracticePageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="CYE-oW-hTQ" customClass="PracticePageViewController" customModule="NotesApp" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PracticePageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="CYE-oW-hTQ" customClass="PracticePageViewController" customModule="ExQuizIt" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zx9-Kh-qY8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2403" y="72"/>
@@ -334,12 +334,12 @@
         <!--Card View Controller-->
         <scene sceneID="W2B-GE-YYg">
             <objects>
-                <viewController storyboardIdentifier="CardViewController" id="PfK-h4-8tE" customClass="CardViewController" customModule="NotesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardViewController" id="PfK-h4-8tE" customClass="CardViewController" customModule="ExQuizIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sg7-hp-aIk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jj2-IT-FXc" customClass="CardView" customModule="NotesApp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jj2-IT-FXc" customClass="CardView" customModule="ExQuizIt" customModuleProvider="target">
                                 <rect key="frame" x="50" y="311" width="314" height="140.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4G-g3-Kcd">
@@ -390,7 +390,7 @@
                                     <constraint firstItem="z4G-g3-Kcd" firstAttribute="top" secondItem="Jj2-IT-FXc" secondAttribute="top" constant="50" id="kef-l2-t20"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6k-it-HaE" customClass="CardView" customModule="NotesApp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6k-it-HaE" customClass="CardView" customModule="ExQuizIt" customModuleProvider="target">
                                 <rect key="frame" x="50" y="311" width="314" height="144"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7cy-Aw-enS">
@@ -542,13 +542,13 @@
         <image name="Cross Icon" width="48" height="48"/>
         <image name="Forward Icon" width="48" height="48"/>
         <namedColor name="Background Color">
-            <color red="0.93900001049041748" green="0.97899997234344482" blue="0.96300005912780762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81490269230000001" green="0.85483743690000003" blue="0.726636473" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Card Background Color">
             <color red="0.98039215686274506" green="0.97647058823529409" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="checkIcon Color">
-            <color red="0.2387922227" green="0.46302508590000002" blue="0.24536777700000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.23899999260902405" green="0.46299999952316284" blue="0.24500000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="crossIcon Color">
             <color red="1" green="0.29800000786781311" blue="0.30700001120567322" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

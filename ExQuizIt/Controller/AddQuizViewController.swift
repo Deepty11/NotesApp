@@ -8,21 +8,21 @@
 import UIKit
 import RealmSwift
 
-enum PageName{
-    case front
-    case back
+enum InputType{
+    case question
+    case answer
 }
 
 enum StoreType{
-    case updateNote
-    case createNewNote
+    case update
+    case create
 }
 protocol CellInteractionDelegte{
     func textViewDidBeginEditing(cell: UITableViewCell)
     func textViewDidEndEditing(cell: UITableViewCell)
     func textViewDidChanged(cell: UITableViewCell)
 }
-class AddNoteViewController: UIViewController,
+class AddQuizViewController: UIViewController,
                                 UITableViewDataSource,
                                 UITableViewDelegate,
                                 UIScrollViewDelegate,
@@ -34,8 +34,8 @@ class AddNoteViewController: UIViewController,
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     let realm = try! Realm()
-    var frontPageContent = String()
-    var backPageContent = String()
+    var questionText = String()
+    var answerText = String()
     var previousNote: Note? = nil
     var storeType: StoreType!
     var tapG : UITapGestureRecognizer{
@@ -47,7 +47,7 @@ class AddNoteViewController: UIViewController,
         self.view.isUserInteractionEnabled = true
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.configureNavigationItem()
+        self.configureNavigationBar()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyBoardWillShow),
                                                name: UIResponder.keyboardWillShowNotification,
@@ -57,10 +57,18 @@ class AddNoteViewController: UIViewController,
                                                name: UIResponder.keyboardDidHideNotification,
                                                object: nil)
         if let previousNote = previousNote {
-            self.frontPageContent = previousNote.frontPage ?? ""
-            self.backPageContent = previousNote.backPage ?? ""
+            self.questionText = previousNote.frontPage ?? ""
+            self.answerText = previousNote.backPage ?? ""
         }
     
+    }
+    
+    private func configureNavigationBar(){
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.title = "Add Quiz"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
+                                                                 target: self,
+                                                                 action: #selector(handleSaveButtonTapped))
     }
     
     @objc func handleTableViewTapped(sender: UITapGestureRecognizer){
@@ -80,29 +88,27 @@ class AddNoteViewController: UIViewController,
         }
     }
     
-    func configureNavigationItem(){
-        self.navigationController?.navigationBar.tintColor = .white
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Save Icon"),
-//                                                                 landscapeImagePhone: UIImage(named: "Save Icon"),
-//                                                                 style: .plain,
-//                                                                 target: self,
-//                                                                 action: #selector(handleSaveButtonTapped))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
-                                                                 target: self,
-                                                                 action: #selector(handleSaveButtonTapped))
-    }
     
     @objc func handleSaveButtonTapped(){
-        switch storeType {
-        case .updateNote:
-            let noteToBeUpdated = realm.objects(Note.self).filter("id == %d", (previousNote?.id ?? -1) as Int)[0]
-            self.saveNoteToRealm(note: noteToBeUpdated, id: previousNote?.id ?? -1)
-        case .createNewNote:
-            let note = Note()
-            self.saveNoteToRealm(note: note, id: realm.objects(Note.self).count)
-        default:
-            return
+        if self.questionText == "" || self.answerText == ""{
+            let alert  =  UIAlertController(title: "Attention",
+                                            message: "Unable to save if any field is empty",
+                                            preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
         }
+        DatabaseManager.shared.saveQuizToDatabase(question: self.questionText, answer: self.answerText)
+        AppState.shared.answerViewDisplayed.append(false)
+//        switch storeType {
+//        case .update:
+////            let noteToBeUpdated = realm.objects(Note.self).filter("id == %d", (previousNote?.id ?? -1) as Int)[0]
+////            self.saveNoteToRealm(note: noteToBeUpdated, id: previousNote?.id ?? -1)
+//        case .create:
+//            DatabaseManager.shared.saveQuizToDatabase(question: self.questionText, answer: self.answerText)
+//        default:
+//            return
+//        }
         
         let alert = UIAlertController(title: nil,
                                       message: "Saved!",
@@ -122,8 +128,8 @@ class AddNoteViewController: UIViewController,
         do{
             try realm.write {
                 note.id = id
-                note.frontPage = self.frontPageContent
-                note.backPage = self.backPageContent
+                note.frontPage = self.questionText
+                note.backPage = self.answerText
                 realm.add(note)
             }
            
@@ -142,9 +148,9 @@ class AddNoteViewController: UIViewController,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{ // for front page
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "AddNoteTableViewCell", for: indexPath) as? AddNoteTableViewCell{
-                cell.pageName = .front
-                cell.pageTextView.text = self.previousNote?.frontPage
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "AddQuizTableViewCell", for: indexPath) as? AddQuizTableViewCell{
+                cell.inputType = .question
+                cell.quizTextView.text = self.previousNote?.frontPage
                 cell.configureCell()
                 cell.delegate = self
                 cell.selectionStyle = .none
@@ -153,9 +159,9 @@ class AddNoteViewController: UIViewController,
             }
         }
         // back page
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "AddNoteTableViewCell", for: indexPath) as? AddNoteTableViewCell{
-            cell.pageName = .back
-            cell.pageTextView.text = self.previousNote?.backPage
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "AddQuizTableViewCell", for: indexPath) as? AddQuizTableViewCell{
+            cell.inputType = .answer
+            cell.quizTextView.text = self.previousNote?.backPage
             cell.configureCell()
             cell.delegate = self
             cell.selectionStyle = .none
@@ -181,12 +187,12 @@ class AddNoteViewController: UIViewController,
     
     func textViewDidChanged(cell: UITableViewCell) {
         if let indexPath = tableView.indexPath(for: cell){
-            if let cell = tableView.cellForRow(at: indexPath) as? AddNoteTableViewCell{
-                let text = cell.pageTextView.text
+            if let cell = tableView.cellForRow(at: indexPath) as? AddQuizTableViewCell{
+                let text = cell.quizTextView.text
                 if indexPath.row == 0{
-                    self.frontPageContent = text ?? ""
+                    self.questionText = text ?? ""
                 } else{
-                    self.backPageContent = text ??  ""
+                    self.answerText = text ??  ""
                 }
             }
         }

@@ -16,6 +16,13 @@ class PracticePageViewController: UIPageViewController, UIPageViewControllerData
         super.viewDidLoad()
         self.dataSource = self
         setViewControllers([getViewController(for: 0)], direction: .forward, animated: true)
+        
+        self.configureNavigationBar()
+    }
+    
+    func configureNavigationBar(){
+        navigationController?.navigationBar.tintColor = .white
+        navigationItem.title = "Practice"
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -48,6 +55,17 @@ class PracticePageViewController: UIPageViewController, UIPageViewControllerData
         }
         return UIViewController()
         
+    }
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return quizzes.count
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        if let currentVc = pageViewController.viewControllers?.first as? CardViewController{
+            return currentVc.pageIndex
+        }
+        return 0
     }
 
 }

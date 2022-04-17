@@ -45,4 +45,19 @@ class DatabaseManager{
     func getAllQuiz()-> [Quiz]{
         return Array(realm.objects(Quiz.self))
     }
+    
+    func saveQuizToDatabase(question: String, answer: String){
+        do{
+            try realm.write {
+                let quiz = Quiz()
+                quiz.question = question
+                quiz.answer = answer
+                quiz.isKnown = false
+                realm.add(quiz)
+            }
+           
+        } catch{
+            print(error.localizedDescription)
+        }
+    }
 }

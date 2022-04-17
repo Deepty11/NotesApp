@@ -119,8 +119,8 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @objc func addButtonTapped(){
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController{
-            vc.storeType = .createNewNote
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddQuizViewController") as? AddQuizViewController{
+            //vc.storeType = .createNewNote
             self.navigationController?.pushViewController(vc,
                                                           animated: true)
         }
