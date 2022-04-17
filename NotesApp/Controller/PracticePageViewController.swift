@@ -7,23 +7,47 @@
 
 import UIKit
 
-class PracticePageViewController: UIPageViewController {
+class PracticePageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
+    var quizzes: [Quiz]{
+        return DatabaseManager.shared.getAllQuiz()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.dataSource = self
+        setViewControllers([getViewController(for: 0)], direction: .forward, animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        if let currentVC = viewController as? CardViewController{
+            let pageIndex = currentVC.pageIndex
+            if pageIndex > 0{
+                return getViewController(for: pageIndex - 1)
+            }
+        }
+        return nil
+        
     }
-    */
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        if let currentVC = viewController as? CardViewController{
+            let pageIndex = currentVC.pageIndex
+            if pageIndex < quizzes.count - 1{
+                return getViewController(for: pageIndex + 1)
+            }
+        }
+        return nil
+    }
+    
+    func getViewController(for index: Int) -> UIViewController{
+        if let vC = storyboard?.instantiateViewController(withIdentifier: String(describing: CardViewController.self)) as? CardViewController{
+            vC.pageIndex = index
+            vC.quiz = quizzes[index]
+            return vC
+            
+        }
+        return UIViewController()
+        
+    }
 
 }

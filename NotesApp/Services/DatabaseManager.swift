@@ -12,9 +12,9 @@ class DatabaseManager{
     static let shared = DatabaseManager()
     var realm = try! Realm()
     
-    func storeJSONParsedQuiz(with quizes: [QuizeJsonModel]){
+    func storeJSONParsedQuiz(with quizzes: [QuizeJsonModel]){
         var quizEntries = [Quiz]()
-        for quiz in quizes{
+        for quiz in quizzes{
             let quizModel = Quiz()
             quizModel.question = quiz.question
             quizModel.answer = quiz.answer
@@ -42,7 +42,7 @@ class DatabaseManager{
         }
     }
     
-    func deleteQuiz(){
-        
+    func getAllQuiz()-> [Quiz]{
+        return Array(realm.objects(Quiz.self))
     }
 }

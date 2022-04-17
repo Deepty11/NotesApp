@@ -27,8 +27,8 @@
 		BF7C71C527FD5C8B00723BEE /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C71C427FD5C8B00723BEE /* Note.swift */; };
 		BF7C71C827FD67EA00723BEE /* QuizTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C71C727FD67EA00723BEE /* QuizTableViewCell.swift */; };
 		BF7C71CA27FD9EC100723BEE /* AddNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C71C927FD9EC100723BEE /* AddNoteTableViewCell.swift */; };
-		FD27422F2800BE870068159B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD27422D2800BE870068159B /* Main.storyboard */; };
 		FD6435F428048FC300137173 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6435F328048FC300137173 /* JSONManager.swift */; };
+		FD6F1DAD280C20F400C9DFC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6F1DAC280C20F300C9DFC6 /* Main.storyboard */; };
 		FD894AAD280B3BA300C43AF8 /* PracticePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD894AAC280B3BA300C43AF8 /* PracticePageViewController.swift */; };
 		FD894AAF280B3E3500C43AF8 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD894AAE280B3E3500C43AF8 /* CardViewController.swift */; };
 		FDC57F432802C28D008D51CA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC57F422802C28D008D51CA /* CardView.swift */; };
@@ -81,8 +81,8 @@
 		BF7C71C927FD9EC100723BEE /* AddNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteTableViewCell.swift; sourceTree = "<group>"; };
 		CEEE3F29DDAA447C22C3CAD7 /* Pods_NotesApp_NotesAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotesApp_NotesAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5584D5512A1F88DF15AAF8C /* Pods-NotesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesApp.release.xcconfig"; path = "Target Support Files/Pods-NotesApp/Pods-NotesApp.release.xcconfig"; sourceTree = "<group>"; };
-		FD27422E2800BE870068159B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD6435F328048FC300137173 /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		FD6F1DAC280C20F300C9DFC6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FD769E1476FFAA6AA94EB3A0 /* Pods-NotesApp-NotesAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesApp-NotesAppUITests.release.xcconfig"; path = "Target Support Files/Pods-NotesApp-NotesAppUITests/Pods-NotesApp-NotesAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FD894AAC280B3BA300C43AF8 /* PracticePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePageViewController.swift; sourceTree = "<group>"; };
 		FD894AAE280B3E3500C43AF8 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 		FD2742302800BEC10068159B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				FD27422D2800BE870068159B /* Main.storyboard */,
+				FD6F1DAC280C20F300C9DFC6 /* Main.storyboard */,
 				BF3AD2EC27FC126800002E53 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -363,9 +363,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD6F1DAD280C20F400C9DFC6 /* Main.storyboard in Resources */,
 				BF3AD2EE27FC126800002E53 /* LaunchScreen.storyboard in Resources */,
 				BF3AD2EB27FC126800002E53 /* Assets.xcassets in Resources */,
-				FD27422F2800BE870068159B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,14 +553,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		FD27422D2800BE870068159B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FD27422E2800BE870068159B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -695,7 +687,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotesApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Keep Notes";
+				INFOPLIST_KEY_CFBundleDisplayName = exQuizIt;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -706,7 +698,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rehnuma.NotesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rehnuma.exQuizIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -728,7 +720,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotesApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Keep Notes";
+				INFOPLIST_KEY_CFBundleDisplayName = exQuizIt;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -739,7 +731,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rehnuma.NotesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rehnuma.exQuizIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

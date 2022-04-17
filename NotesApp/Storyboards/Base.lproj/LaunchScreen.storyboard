@@ -25,7 +25,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="LaunchScreen BG Color"/>
+                        <color key="backgroundColor" name="Background Color"/>
                         <constraints>
                             <constraint firstItem="zuY-vx-jJ5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="378-qI-3ry"/>
                             <constraint firstItem="zuY-vx-jJ5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="JB2-Yx-ypo"/>
@@ -39,9 +39,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Launchscreen Icon" width="128" height="128"/>
-        <namedColor name="LaunchScreen BG Color">
-            <color red="0.95899999141693115" green="1" blue="0.86900001764297485" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <image name="Launchscreen Icon" width="134" height="61"/>
+        <namedColor name="Background Color">
+            <color red="0.93900001049041748" green="0.97899997234344482" blue="0.96300005912780762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

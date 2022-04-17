@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "exQuizIt.png",
+      "filename" : "outline_arrow_forward_white_48pt_1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "exQuizIt@2x.png",
+      "filename" : "outline_arrow_forward_white_48pt_2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "exQuizIt@3x.png",
+      "filename" : "outline_arrow_forward_white_48pt_3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

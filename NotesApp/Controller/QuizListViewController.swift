@@ -59,7 +59,7 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
     
     private func configureNavigationBar(){
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationItem.title = "Quizer"
+        self.navigationItem.title = "Quizzes"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                  target: self,
                                                                  action: #selector(addButtonTapped))

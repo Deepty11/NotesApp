@@ -49,7 +49,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="34"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XKw-wV-Wqu">
-                                                                            <rect key="frame" x="2" y="2" width="380" height="30"/>
+                                                                            <rect key="frame" x="79.5" y="2" width="225.5" height="30"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cross Icon" translatesAutoresizingMaskIntoConstraints="NO" id="lmS-RU-7sN">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -59,9 +59,9 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I didn't know this answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhI-Z4-eGx">
-                                                                                    <rect key="frame" x="38" y="0.0" width="342" height="30"/>
+                                                                                    <rect key="frame" x="38" y="0.0" width="187.5" height="30"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <nil key="textColor"/>
+                                                                                    <color key="textColor" name="crossIcon Color"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
@@ -69,8 +69,7 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="1" green="0.65346989122985955" blue="0.6741090484474086" alpha="0.81154283940397354" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="XKw-wV-Wqu" firstAttribute="leading" secondItem="ucR-z8-TSD" secondAttribute="leading" constant="2" id="Ai6-AL-5W5"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="XKw-wV-Wqu" secondAttribute="trailing" constant="2" id="Gkf-Ug-krb"/>
+                                                                        <constraint firstItem="XKw-wV-Wqu" firstAttribute="centerX" secondItem="ucR-z8-TSD" secondAttribute="centerX" id="6S7-aq-EJm"/>
                                                                         <constraint firstItem="XKw-wV-Wqu" firstAttribute="top" secondItem="ucR-z8-TSD" secondAttribute="top" constant="2" id="WXL-Om-hUo"/>
                                                                         <constraint firstAttribute="bottom" secondItem="XKw-wV-Wqu" secondAttribute="bottom" constant="2" id="aYS-oG-Pee"/>
                                                                     </constraints>
@@ -79,7 +78,7 @@
                                                                     <rect key="frame" x="0.0" y="34" width="384" height="34"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="52c-id-g85">
-                                                                            <rect key="frame" x="2" y="2" width="380" height="30"/>
+                                                                            <rect key="frame" x="85.5" y="2" width="213.5" height="30"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Correct Icon" translatesAutoresizingMaskIntoConstraints="NO" id="wIg-DM-Ajc">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -89,9 +88,9 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes, I knew this answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LX4-Qb-vec">
-                                                                                    <rect key="frame" x="38" y="5" width="342" height="20.5"/>
+                                                                                    <rect key="frame" x="38" y="5" width="175.5" height="20.5"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <nil key="textColor"/>
+                                                                                    <color key="textColor" name="checkIcon Color"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
@@ -99,9 +98,8 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="0.72528564598527367" green="0.86078917980194092" blue="0.63576694438804249" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="52c-id-g85" firstAttribute="leading" secondItem="hzg-Bl-9uK" secondAttribute="leading" constant="2" id="9Lc-Hr-uJ1"/>
                                                                         <constraint firstItem="52c-id-g85" firstAttribute="top" secondItem="hzg-Bl-9uK" secondAttribute="top" constant="2" id="E7Y-rv-kUT"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="52c-id-g85" secondAttribute="trailing" constant="2" id="Ebd-92-vKf"/>
+                                                                        <constraint firstItem="52c-id-g85" firstAttribute="centerX" secondItem="hzg-Bl-9uK" secondAttribute="centerX" id="Kbx-mP-14o"/>
                                                                         <constraint firstAttribute="bottom" secondItem="52c-id-g85" secondAttribute="bottom" constant="2" id="Ua9-F1-jYd"/>
                                                                     </constraints>
                                                                 </view>
@@ -112,12 +110,12 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="Qns-HW-uhb"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRu-j2-wqp">
-                                                            <rect key="frame" x="5" y="56" width="374" height="66"/>
+                                                            <rect key="frame" x="5" y="56" width="374" height="56"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -131,7 +129,7 @@
                                                         <constraint firstItem="Wf6-tv-fib" firstAttribute="leading" secondItem="vC0-lv-C1B" secondAttribute="leading" id="PoG-fv-VX9"/>
                                                         <constraint firstItem="lRu-j2-wqp" firstAttribute="top" secondItem="jwv-Lr-PB4" secondAttribute="bottom" constant="8" id="QvD-tA-8GY"/>
                                                         <constraint firstAttribute="trailing" secondItem="Wf6-tv-fib" secondAttribute="trailing" id="TPZ-0E-ZMh"/>
-                                                        <constraint firstItem="Wf6-tv-fib" firstAttribute="top" secondItem="lRu-j2-wqp" secondAttribute="bottom" constant="10" id="bcj-BP-zaG"/>
+                                                        <constraint firstItem="Wf6-tv-fib" firstAttribute="top" secondItem="lRu-j2-wqp" secondAttribute="bottom" constant="20" id="bcj-BP-zaG"/>
                                                         <constraint firstAttribute="bottom" secondItem="Wf6-tv-fib" secondAttribute="bottom" id="l4a-wm-wkp"/>
                                                         <constraint firstAttribute="trailing" secondItem="lRu-j2-wqp" secondAttribute="trailing" constant="5" id="l8G-pP-924"/>
                                                         <constraint firstItem="jwv-Lr-PB4" firstAttribute="top" secondItem="vC0-lv-C1B" secondAttribute="top" constant="8" id="sP5-lA-YpG"/>
@@ -342,63 +340,67 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jj2-IT-FXc" customClass="CardView" customModule="NotesApp" customModuleProvider="target">
-                                <rect key="frame" x="50" y="311" width="314" height="118.5"/>
+                                <rect key="frame" x="50" y="311" width="314" height="140.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4G-g3-Kcd">
-                                        <rect key="frame" x="5" y="50" width="304" height="20.5"/>
+                                        <rect key="frame" x="15" y="50" width="284" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7t-hw-zHH">
-                                        <rect key="frame" x="0.0" y="79" width="314" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="100.5" width="314" height="40"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uCL-kE-7bt">
-                                                <rect key="frame" x="65" y="9.5" width="167" height="20.5"/>
+                                                <rect key="frame" x="65" y="10" width="167.5" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to see answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8h-RI-p0D">
-                                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DjM-T1-9Zd">
-                                                        <rect key="frame" x="147.5" y="2.5" width="19.5" height="15.5"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Forward Icon" translatesAutoresizingMaskIntoConstraints="NO" id="DjM-T1-9Zd">
+                                                        <rect key="frame" x="147.5" y="0.0" width="20" height="20"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="DjM-T1-9Zd" secondAttribute="height" multiplier="1:1" id="lXH-Ae-dfV"/>
+                                                            <constraint firstAttribute="width" constant="20" id="moz-RI-76i"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="D7h-Vj-Rmm"/>
                                             <constraint firstItem="uCL-kE-7bt" firstAttribute="leading" secondItem="E7t-hw-zHH" secondAttribute="leading" constant="65" id="bkY-9Y-9tT"/>
                                             <constraint firstItem="uCL-kE-7bt" firstAttribute="centerY" secondItem="E7t-hw-zHH" secondAttribute="centerY" id="sMS-hh-4hN"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Card Background Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="z4G-g3-Kcd" secondAttribute="trailing" constant="5" id="5QJ-tZ-udD"/>
-                                    <constraint firstItem="E7t-hw-zHH" firstAttribute="top" secondItem="z4G-g3-Kcd" secondAttribute="bottom" constant="8.5" id="7rJ-MV-VbX"/>
+                                    <constraint firstAttribute="trailing" secondItem="z4G-g3-Kcd" secondAttribute="trailing" constant="15" id="5QJ-tZ-udD"/>
+                                    <constraint firstItem="E7t-hw-zHH" firstAttribute="top" secondItem="z4G-g3-Kcd" secondAttribute="bottom" constant="30" id="7rJ-MV-VbX"/>
                                     <constraint firstAttribute="bottom" secondItem="E7t-hw-zHH" secondAttribute="bottom" id="Nyg-Fl-bpS"/>
-                                    <constraint firstItem="E7t-hw-zHH" firstAttribute="height" secondItem="Jj2-IT-FXc" secondAttribute="height" multiplier="1:3" id="RhI-40-1Os"/>
-                                    <constraint firstItem="z4G-g3-Kcd" firstAttribute="leading" secondItem="Jj2-IT-FXc" secondAttribute="leading" constant="5" id="ZvS-Y9-ZF4"/>
+                                    <constraint firstItem="z4G-g3-Kcd" firstAttribute="leading" secondItem="Jj2-IT-FXc" secondAttribute="leading" constant="15" id="ZvS-Y9-ZF4"/>
                                     <constraint firstAttribute="trailing" secondItem="E7t-hw-zHH" secondAttribute="trailing" id="ae9-5g-QIt"/>
                                     <constraint firstItem="E7t-hw-zHH" firstAttribute="leading" secondItem="Jj2-IT-FXc" secondAttribute="leading" id="ilK-YS-3p1"/>
                                     <constraint firstItem="z4G-g3-Kcd" firstAttribute="top" secondItem="Jj2-IT-FXc" secondAttribute="top" constant="50" id="kef-l2-t20"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6k-it-HaE" customClass="CardView" customModule="NotesApp" customModuleProvider="target">
-                                <rect key="frame" x="50" y="311" width="314" height="134"/>
+                                <rect key="frame" x="50" y="311" width="314" height="144"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7cy-Aw-enS">
-                                        <rect key="frame" x="0.0" y="66" width="314" height="68"/>
+                                        <rect key="frame" x="0.0" y="76" width="314" height="68"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9p-ho-CUq">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="H7g-U4-1xq">
-                                                        <rect key="frame" x="44" y="2" width="226.5" height="30"/>
+                                                        <rect key="frame" x="53" y="2" width="208" height="30"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cross Icon" translatesAutoresizingMaskIntoConstraints="NO" id="gUN-Q8-r6E">
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -408,9 +410,9 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I didn't know this answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5m-YJ-77y">
-                                                                <rect key="frame" x="39" y="0.0" width="187.5" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="39" y="0.0" width="169" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" name="crossIcon Color"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -427,7 +429,7 @@
                                                 <rect key="frame" x="0.0" y="34" width="314" height="34"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cfT-iI-9Zr">
-                                                        <rect key="frame" x="50.5" y="2" width="213.5" height="30"/>
+                                                        <rect key="frame" x="59" y="2" width="196.5" height="30"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Correct Icon" translatesAutoresizingMaskIntoConstraints="NO" id="sG1-dg-2vT">
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -437,9 +439,9 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes, I knew this answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lK-PU-RGc">
-                                                                <rect key="frame" x="38" y="5" width="175.5" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="38" y="6" width="158.5" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" red="0.23879222268702427" green="0.46302508585380786" blue="0.24536777697206608" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -459,7 +461,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="3R9-Sv-v1p"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -470,7 +472,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="Card Background Color"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="7cy-Aw-enS" secondAttribute="trailing" id="G8P-Bn-7qn"/>
                                     <constraint firstAttribute="trailing" secondItem="LWb-f1-HYd" secondAttribute="trailing" constant="5" id="ObQ-4M-a81"/>
@@ -480,13 +482,13 @@
                                     <constraint firstAttribute="trailing" secondItem="jSm-yM-tL6" secondAttribute="trailing" constant="5" id="Ydn-Bc-Fej"/>
                                     <constraint firstItem="7cy-Aw-enS" firstAttribute="leading" secondItem="V6k-it-HaE" secondAttribute="leading" id="aWX-Rd-xAN"/>
                                     <constraint firstAttribute="bottom" secondItem="7cy-Aw-enS" secondAttribute="bottom" id="d74-65-FKF"/>
-                                    <constraint firstItem="7cy-Aw-enS" firstAttribute="top" secondItem="LWb-f1-HYd" secondAttribute="bottom" constant="10" id="mMU-DV-RYW"/>
+                                    <constraint firstItem="7cy-Aw-enS" firstAttribute="top" secondItem="LWb-f1-HYd" secondAttribute="bottom" constant="20" id="mMU-DV-RYW"/>
                                     <constraint firstItem="jSm-yM-tL6" firstAttribute="leading" secondItem="V6k-it-HaE" secondAttribute="leading" constant="5" id="qHd-Bk-b1E"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AXB-gF-E82"/>
-                        <color key="backgroundColor" name="Background Color"/>
+                        <color key="backgroundColor" red="0.40746218749906199" green="0.41790079897639293" blue="0.66090935587979804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Jj2-IT-FXc" firstAttribute="leading" secondItem="AXB-gF-E82" secondAttribute="leading" constant="50" id="4vj-ia-uXb"/>
                             <constraint firstItem="AXB-gF-E82" firstAttribute="trailing" secondItem="Jj2-IT-FXc" secondAttribute="trailing" constant="50" id="UFT-jh-Ur6"/>
@@ -538,12 +540,15 @@
     <resources>
         <image name="Correct Icon" width="48" height="48"/>
         <image name="Cross Icon" width="48" height="48"/>
-        <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="Forward Icon" width="48" height="48"/>
         <namedColor name="Background Color">
             <color red="0.93900001049041748" green="0.97899997234344482" blue="0.96300005912780762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Card Background Color">
-            <color red="1" green="1" blue="0.7929999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98039215686274506" green="0.97647058823529409" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="checkIcon Color">
+            <color red="0.2387922227" green="0.46302508590000002" blue="0.24536777700000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="crossIcon Color">
             <color red="1" green="0.29800000786781311" blue="0.30700001120567322" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
