@@ -27,8 +27,6 @@ class CardViewController: UIViewController {
         let tP1 = UITapGestureRecognizer(target: self, action: #selector(handleTapToSeeAnswerButtonTapped))
         let tP2 = UITapGestureRecognizer(target: self, action: #selector(handleUncommonQuizButtonTapped))
         let tP3 = UITapGestureRecognizer(target: self, action: #selector(handleCommonQuizButtonTapped))
-        self.uncommonQuestionView.tag = 0
-        self.commonQuestionView.tag = 1
         
         self.questionLabel.text = self.quiz?.question
         

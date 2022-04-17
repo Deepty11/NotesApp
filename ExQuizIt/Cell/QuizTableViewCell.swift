@@ -34,7 +34,7 @@ class QuizTableViewCell: UITableViewCell {
     
     func configureIconColor(){
         self.checkIconImageView.image = self.checkIconImageView.image?.withRenderingMode(.alwaysTemplate)
-        self.checkIconImageView.tintColor = .green
+        self.checkIconImageView.tintColor = UIColor(named: "checkIcon Color")
         self.crossIconImageView.image = self.crossIconImageView.image?.withRenderingMode(.alwaysTemplate)
         self.crossIconImageView.tintColor = .red
     }

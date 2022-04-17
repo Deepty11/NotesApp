@@ -48,8 +48,8 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-z8-TSD">
                                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="34"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XKw-wV-Wqu">
-                                                                            <rect key="frame" x="79.5" y="2" width="225.5" height="30"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XKw-wV-Wqu">
+                                                                            <rect key="frame" x="81" y="2" width="222.5" height="30"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cross Icon" translatesAutoresizingMaskIntoConstraints="NO" id="lmS-RU-7sN">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -59,7 +59,7 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I didn't know this answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhI-Z4-eGx">
-                                                                                    <rect key="frame" x="38" y="0.0" width="187.5" height="30"/>
+                                                                                    <rect key="frame" x="35" y="0.0" width="187.5" height="30"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <color key="textColor" name="crossIcon Color"/>
                                                                                     <nil key="highlightedColor"/>
@@ -77,8 +77,8 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzg-Bl-9uK">
                                                                     <rect key="frame" x="0.0" y="34" width="384" height="34"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="52c-id-g85">
-                                                                            <rect key="frame" x="85.5" y="2" width="213.5" height="30"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="52c-id-g85">
+                                                                            <rect key="frame" x="87" y="2" width="210.5" height="30"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Correct Icon" translatesAutoresizingMaskIntoConstraints="NO" id="wIg-DM-Ajc">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -88,7 +88,7 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes, I knew this answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LX4-Qb-vec">
-                                                                                    <rect key="frame" x="38" y="5" width="175.5" height="20.5"/>
+                                                                                    <rect key="frame" x="35" y="5" width="175.5" height="20.5"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <color key="textColor" name="checkIcon Color"/>
                                                                                     <nil key="highlightedColor"/>
@@ -138,12 +138,6 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMD-ec-aK9" customClass="CardView" customModule="ExQuizIt" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="7" width="384" height="200"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbZ-m9-NyP">
-                                                            <rect key="frame" x="20" y="20" width="344" height="160"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXP-kn-CkB">
                                                             <rect key="frame" x="301" y="3" width="80" height="30"/>
                                                             <subviews>
@@ -164,6 +158,12 @@
                                                                 <constraint firstAttribute="width" constant="80" id="yUG-CI-HOW"/>
                                                             </constraints>
                                                         </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbZ-m9-NyP">
+                                                            <rect key="frame" x="20" y="20" width="344" height="160"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" name="Card Background Color"/>
                                                     <constraints>
@@ -340,7 +340,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jj2-IT-FXc" customClass="CardView" customModule="ExQuizIt" customModuleProvider="target">
-                                <rect key="frame" x="50" y="311" width="314" height="140.5"/>
+                                <rect key="frame" x="50" y="383" width="314" height="140.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4G-g3-Kcd">
                                         <rect key="frame" x="15" y="50" width="284" height="20.5"/>
@@ -351,8 +351,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7t-hw-zHH">
                                         <rect key="frame" x="0.0" y="100.5" width="314" height="40"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uCL-kE-7bt">
-                                                <rect key="frame" x="65" y="10" width="167.5" height="20"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uCL-kE-7bt">
+                                                <rect key="frame" x="76" y="10" width="162.5" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to see answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8h-RI-p0D">
                                                         <rect key="frame" x="0.0" y="0.0" width="137.5" height="20"/>
@@ -361,7 +361,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Forward Icon" translatesAutoresizingMaskIntoConstraints="NO" id="DjM-T1-9Zd">
-                                                        <rect key="frame" x="147.5" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="142.5" y="0.0" width="20" height="20"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="DjM-T1-9Zd" secondAttribute="height" multiplier="1:1" id="lXH-Ae-dfV"/>
@@ -374,7 +374,7 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="D7h-Vj-Rmm"/>
-                                            <constraint firstItem="uCL-kE-7bt" firstAttribute="leading" secondItem="E7t-hw-zHH" secondAttribute="leading" constant="65" id="bkY-9Y-9tT"/>
+                                            <constraint firstItem="uCL-kE-7bt" firstAttribute="centerX" secondItem="E7t-hw-zHH" secondAttribute="centerX" id="H9G-lf-GXF"/>
                                             <constraint firstItem="uCL-kE-7bt" firstAttribute="centerY" secondItem="E7t-hw-zHH" secondAttribute="centerY" id="sMS-hh-4hN"/>
                                         </constraints>
                                     </view>
@@ -391,7 +391,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6k-it-HaE" customClass="CardView" customModule="ExQuizIt" customModuleProvider="target">
-                                <rect key="frame" x="50" y="311" width="314" height="144"/>
+                                <rect key="frame" x="50" y="381" width="314" height="144"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7cy-Aw-enS">
                                         <rect key="frame" x="0.0" y="76" width="314" height="68"/>
@@ -399,8 +399,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9p-ho-CUq">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="H7g-U4-1xq">
-                                                        <rect key="frame" x="53" y="2" width="208" height="30"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="H7g-U4-1xq">
+                                                        <rect key="frame" x="55" y="2" width="204" height="30"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cross Icon" translatesAutoresizingMaskIntoConstraints="NO" id="gUN-Q8-r6E">
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -410,7 +410,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I didn't know this answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5m-YJ-77y">
-                                                                <rect key="frame" x="39" y="0.0" width="169" height="30"/>
+                                                                <rect key="frame" x="35" y="0.0" width="169" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" name="crossIcon Color"/>
                                                                 <nil key="highlightedColor"/>
@@ -428,8 +428,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCa-Vd-nuu">
                                                 <rect key="frame" x="0.0" y="34" width="314" height="34"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cfT-iI-9Zr">
-                                                        <rect key="frame" x="59" y="2" width="196.5" height="30"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cfT-iI-9Zr">
+                                                        <rect key="frame" x="60.5" y="2" width="193.5" height="30"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Correct Icon" translatesAutoresizingMaskIntoConstraints="NO" id="sG1-dg-2vT">
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -439,7 +439,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes, I knew this answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lK-PU-RGc">
-                                                                <rect key="frame" x="38" y="6" width="158.5" height="18"/>
+                                                                <rect key="frame" x="35" y="6" width="158.5" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" red="0.23879222268702427" green="0.46302508585380786" blue="0.24536777697206608" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
@@ -491,9 +491,9 @@
                         <color key="backgroundColor" red="0.40746218749906199" green="0.41790079897639293" blue="0.66090935587979804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Jj2-IT-FXc" firstAttribute="leading" secondItem="AXB-gF-E82" secondAttribute="leading" constant="50" id="4vj-ia-uXb"/>
+                            <constraint firstItem="V6k-it-HaE" firstAttribute="centerY" secondItem="AXB-gF-E82" secondAttribute="centerY" id="6NQ-5B-LgV"/>
                             <constraint firstItem="AXB-gF-E82" firstAttribute="trailing" secondItem="Jj2-IT-FXc" secondAttribute="trailing" constant="50" id="UFT-jh-Ur6"/>
-                            <constraint firstItem="Jj2-IT-FXc" firstAttribute="top" secondItem="AXB-gF-E82" secondAttribute="top" constant="267" id="Y3Q-dt-qWq"/>
-                            <constraint firstItem="V6k-it-HaE" firstAttribute="top" secondItem="AXB-gF-E82" secondAttribute="top" constant="267" id="mvq-9H-781"/>
+                            <constraint firstItem="Jj2-IT-FXc" firstAttribute="centerY" secondItem="AXB-gF-E82" secondAttribute="centerY" id="lvm-4k-L9C"/>
                             <constraint firstItem="V6k-it-HaE" firstAttribute="leading" secondItem="AXB-gF-E82" secondAttribute="leading" constant="50" id="nwP-9b-f9S"/>
                             <constraint firstItem="AXB-gF-E82" firstAttribute="trailing" secondItem="V6k-it-HaE" secondAttribute="trailing" constant="50" id="znU-jG-qeH"/>
                         </constraints>
@@ -542,7 +542,7 @@
         <image name="Cross Icon" width="48" height="48"/>
         <image name="Forward Icon" width="48" height="48"/>
         <namedColor name="Background Color">
-            <color red="0.81490269230000001" green="0.85483743690000003" blue="0.726636473" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81499999761581421" green="0.85500001907348633" blue="0.72699999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Card Background Color">
             <color red="0.98039215686274506" green="0.97647058823529409" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
