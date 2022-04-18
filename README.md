@@ -1,6 +1,6 @@
 # ExQuizIt
 A quiz assistant application for iOS
 
-Pre-requisite:
+### Pre-requisite:
 
-To run the application, run "pod install" right after cloning the project
+To run the application, run "**pod install**" right after cloning the project
