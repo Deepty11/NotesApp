@@ -19,7 +19,6 @@ enum StoreType{
 }
 protocol CellInteractionDelegte{
     func textViewDidBeginEditing(cell: UITableViewCell)
-    func textViewDidEndEditing(cell: UITableViewCell)
     func textViewDidChanged(cell: UITableViewCell)
 }
 class AddQuizViewController: UIViewController,
@@ -97,18 +96,10 @@ class AddQuizViewController: UIViewController,
             let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true)
+            return
         }
         DatabaseManager.shared.saveQuizToDatabase(question: self.questionText, answer: self.answerText)
         AppState.shared.answerViewDisplayed.append(false)
-//        switch storeType {
-//        case .update:
-////            let noteToBeUpdated = realm.objects(Note.self).filter("id == %d", (previousNote?.id ?? -1) as Int)[0]
-////            self.saveNoteToRealm(note: noteToBeUpdated, id: previousNote?.id ?? -1)
-//        case .create:
-//            DatabaseManager.shared.saveQuizToDatabase(question: self.questionText, answer: self.answerText)
-//        default:
-//            return
-//        }
         
         let alert = UIAlertController(title: nil,
                                       message: "Saved!",
@@ -124,20 +115,6 @@ class AddQuizViewController: UIViewController,
        
     }
     
-    func saveNoteToRealm(note: Note, id: Int){
-        do{
-            try realm.write {
-                note.id = id
-                note.frontPage = self.questionText
-                note.backPage = self.answerText
-                realm.add(note)
-            }
-           
-        } catch{
-            print(error.localizedDescription)
-        }
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -147,7 +124,7 @@ class AddQuizViewController: UIViewController,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0{ // for front page
+        if indexPath.row == 0{ //question
             if let cell = tableView.dequeueReusableCell(withIdentifier: "AddQuizTableViewCell", for: indexPath) as? AddQuizTableViewCell{
                 cell.inputType = .question
                 cell.quizTextView.text = self.previousNote?.frontPage
@@ -158,7 +135,7 @@ class AddQuizViewController: UIViewController,
                 return cell
             }
         }
-        // back page
+        // answer
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AddQuizTableViewCell", for: indexPath) as? AddQuizTableViewCell{
             cell.inputType = .answer
             cell.quizTextView.text = self.previousNote?.backPage
@@ -179,10 +156,6 @@ class AddQuizViewController: UIViewController,
                                        animated: true)
         }
        
-    }
-    
-    func textViewDidEndEditing(cell: UITableViewCell) {
-
     }
     
     func textViewDidChanged(cell: UITableViewCell) {
