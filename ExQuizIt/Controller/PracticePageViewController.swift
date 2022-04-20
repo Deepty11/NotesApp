@@ -9,7 +9,7 @@ import UIKit
 
 class PracticePageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
-    var quizzes: [Quiz]{
+    var quizzes: [QuizModel]{
         return DatabaseManager.shared.getAllQuiz()
     }
     override func viewDidLoad() {

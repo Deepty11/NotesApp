@@ -15,33 +15,32 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     
     let realm = try! Realm()
-    var quizSources : [Quiz]!
-    var quizes: [Quiz]{
-        return Array(realm.objects(Quiz.self))
+    var quizSources = [QuizModel](){
+        didSet{
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    var quizes: [QuizModel]{
+        return Array(realm.objects(QuizModel.self))
     }
     
     override func viewDidLoad() {
+        self.fetchQuizzes()
         super.viewDidLoad()
         configureNavigationBar()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-//        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressed))
-//        self.tableView.addGestureRecognizer(longPress)
-        self.quizSources = quizes
-        /// initializing answerFlipped false for each quiz
-        for _ in quizSources{
-            AppState.shared.answerViewDisplayed.append(false)
-        }
-        self.tableView.reloadData()
+        
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.fetchQuizzes()
         super.viewWillAppear(animated)
-        self.quizSources = quizes
-        self.tableView.isHidden = quizSources.isEmpty ? true : false
-        self.emptyQuizLabel.isHidden = quizSources.isEmpty ? false : true
-        self.tableView.reloadData()
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,6 +56,35 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    func fetchQuizzes(){
+        if self.quizes.isEmpty{
+            /// calls and downloads data from API and then saves to realm
+            /// and then fetch data from realm
+            ///save dummy quiz from JSON to realm
+            JSONManager.shared.getAllQuizzesFromAPIs { quizzes in
+                DatabaseManager.shared.storeJSONParsedQuiz(with: quizzes)
+                self.quizSources = self.quizes
+                
+                /// initializing answerFlipped false for each quiz
+                for _ in self.quizSources{
+                    AppState.shared.answerViewDisplayed.append(false)
+                }
+                self.tableView.reloadData()
+               // self.tableView.isHidden = self.quizSources.isEmpty ? true : false
+               // self.emptyQuizLabel.isHidden = self.quizSources.isEmpty ? false : true
+                
+            }
+        } else{
+            /// fetch data from realm
+            self.quizSources = self.quizes
+            self.tableView.reloadData()
+            self.tableView.isHidden = self.quizSources.isEmpty ? true : false
+            self.emptyQuizLabel.isHidden = self.quizSources.isEmpty ? false : true
+            
+        }
+        
+    }
+    
     private func configureNavigationBar(){
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.title = "Quizzes"
@@ -65,41 +93,41 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
                                                                  action: #selector(addButtonTapped))
     }
     // long press to delete a note by its id provided
-    @objc func handleLongPressed(sender: UILongPressGestureRecognizer){
-        if sender.state == .began{
-            let touchPoint = sender.location(in: self.tableView)
-            if var indexRow = tableView.indexPathForRow(at: touchPoint)?.row{
-                let alert = UIAlertController(title: "Attention",
-                                              message: "Do you want to delete the note?",
-                                              preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Confirm",
-                                             style: .default) { action in
-                    let note = self.realm.objects(Note.self).filter("id == %d", indexRow)[0]
-                    let nextNotes = self.realm.objects(Note.self).filter("id > %d", indexRow)
-                    do{
-                        try self.realm.write {
-                            self.realm.delete(note)
-                            for note in nextNotes{
-                                note.id = indexRow
-                                indexRow += 1
-                            }
-                            self.realm.add(nextNotes)
-                            
-                        }
-                    }catch{
-                        print(error.localizedDescription)
-                    }
-                    self.displayAlert(title: nil, message: "Deleted Successfully")
-                }
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                alert.addAction(okAction)
-                alert.addAction(cancelAction)
-                self.present(alert, animated: true, completion: nil)
-            }
-            
-        }
-    }
+//    @objc func handleLongPressed(sender: UILongPressGestureRecognizer){
+//        if sender.state == .began{
+//            let touchPoint = sender.location(in: self.tableView)
+//            if var indexRow = tableView.indexPathForRow(at: touchPoint)?.row{
+//                let alert = UIAlertController(title: "Attention",
+//                                              message: "Do you want to delete the note?",
+//                                              preferredStyle: .alert)
+//                let okAction = UIAlertAction(title: "Confirm",
+//                                             style: .default) { action in
+//                    let note = self.realm.objects(Note.self).filter("id == %d", indexRow)[0]
+//                    let nextNotes = self.realm.objects(Note.self).filter("id > %d", indexRow)
+//                    do{
+//                        try self.realm.write {
+//                            self.realm.delete(note)
+//                            for note in nextNotes{
+//                                note.id = indexRow
+//                                indexRow += 1
+//                            }
+//                            self.realm.add(nextNotes)
+//
+//                        }
+//                    }catch{
+//                        print(error.localizedDescription)
+//                    }
+//                    self.displayAlert(title: nil, message: "Deleted Successfully")
+//                }
+//
+//                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//                alert.addAction(okAction)
+//                alert.addAction(cancelAction)
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//
+//        }
+//    }
     
     func displayAlert(title: String?, message: String?){
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
@@ -120,7 +148,6 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @objc func addButtonTapped(){
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddQuizViewController") as? AddQuizViewController{
-            //vc.storeType = .createNewNote
             self.navigationController?.pushViewController(vc,
                                                           animated: true)
         }

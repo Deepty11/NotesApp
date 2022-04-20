@@ -19,7 +19,7 @@ class CardViewController: UIViewController {
     @IBOutlet weak var crossIconImageView: UIImageView!
     @IBOutlet weak var checkIconImageView: UIImageView!
     var pageIndex = 0
-    var quiz: Quiz?
+    var quiz: QuizModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.questionView.isHidden = false
@@ -46,13 +46,13 @@ class CardViewController: UIViewController {
     
     
     @objc func handleUncommonQuizButtonTapped(sender: UITapGestureRecognizer){
-        DatabaseManager.shared.updateLearningStatus(with: false, of: self.quiz ?? Quiz())
+        DatabaseManager.shared.updateLearningStatus(with: false, of: self.quiz ?? QuizModel())
         self.flipCard(from: self.answerView, to: self.questionView)
         
     }
     
     @objc func handleCommonQuizButtonTapped(sender: UITapGestureRecognizer){
-        DatabaseManager.shared.updateLearningStatus(with: true, of: self.quiz ?? Quiz())
+        DatabaseManager.shared.updateLearningStatus(with: true, of: self.quiz ?? QuizModel())
         self.flipCard(from: self.answerView, to: self.questionView)
     }
     

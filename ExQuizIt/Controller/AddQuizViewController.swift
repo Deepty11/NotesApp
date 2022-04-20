@@ -35,7 +35,6 @@ class AddQuizViewController: UIViewController,
     let realm = try! Realm()
     var questionText = String()
     var answerText = String()
-    var previousNote: Note? = nil
     var storeType: StoreType!
     var tapG : UITapGestureRecognizer{
         return UITapGestureRecognizer(target: self,
@@ -55,10 +54,6 @@ class AddQuizViewController: UIViewController,
                                                selector: #selector(keyBoardWillHide),
                                                name: UIResponder.keyboardDidHideNotification,
                                                object: nil)
-        if let previousNote = previousNote {
-            self.questionText = previousNote.frontPage ?? ""
-            self.answerText = previousNote.backPage ?? ""
-        }
     
     }
     
@@ -90,17 +85,24 @@ class AddQuizViewController: UIViewController,
     
     @objc func handleSaveButtonTapped(){
         if self.questionText == "" || self.answerText == ""{
-            let alert  =  UIAlertController(title: "Attention",
-                                            message: "Unable to save if any field is empty",
-                                            preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-            alert.addAction(okAction)
-            self.present(alert, animated: true)
+            self.displayAlertForEmptyField()
             return
         }
         DatabaseManager.shared.saveQuizToDatabase(question: self.questionText, answer: self.answerText)
         AppState.shared.answerViewDisplayed.append(false)
-        
+        self.displayAlertForSuccessInStoringQuiz()
+    }
+    
+    func displayAlertForEmptyField(){
+        let alert  =  UIAlertController(title: "Attention",
+                                        message: "Unable to save if any field is empty",
+                                        preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+    }
+    
+    func displayAlertForSuccessInStoringQuiz(){
         let alert = UIAlertController(title: nil,
                                       message: "Saved!",
                                       preferredStyle: .alert)
@@ -112,7 +114,6 @@ class AddQuizViewController: UIViewController,
                 }
             }
         }
-       
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -127,7 +128,6 @@ class AddQuizViewController: UIViewController,
         if indexPath.row == 0{ //question
             if let cell = tableView.dequeueReusableCell(withIdentifier: "AddQuizTableViewCell", for: indexPath) as? AddQuizTableViewCell{
                 cell.inputType = .question
-                cell.quizTextView.text = self.previousNote?.frontPage
                 cell.configureCell()
                 cell.delegate = self
                 cell.selectionStyle = .none
@@ -138,7 +138,6 @@ class AddQuizViewController: UIViewController,
         // answer
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AddQuizTableViewCell", for: indexPath) as? AddQuizTableViewCell{
             cell.inputType = .answer
-            cell.quizTextView.text = self.previousNote?.backPage
             cell.configureCell()
             cell.delegate = self
             cell.selectionStyle = .none
@@ -171,5 +170,4 @@ class AddQuizViewController: UIViewController,
         }
     }
     
-
 }

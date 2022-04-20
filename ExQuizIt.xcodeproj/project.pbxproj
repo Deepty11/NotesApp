@@ -21,7 +21,7 @@
 		BF3AD31627FC1FE900002E53 /* QuizListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD31527FC1FE900002E53 /* QuizListViewController.swift */; };
 		BF3AD31827FC31FD00002E53 /* AddQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD31727FC31FD00002E53 /* AddQuizViewController.swift */; };
 		BF60D23628051D8F00325024 /* QuizJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60D23528051D8F00325024 /* QuizJsonModel.swift */; };
-		BF60D23828051E5B00325024 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60D23728051E5B00325024 /* Quiz.swift */; };
+		BF60D23828051E5B00325024 /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60D23728051E5B00325024 /* QuizModel.swift */; };
 		BF60D23A2805223F00325024 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60D2392805223F00325024 /* DatabaseManager.swift */; };
 		BF60D23C280527EA00325024 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60D23B280527EA00325024 /* AppState.swift */; };
 		BF7C71C527FD5C8B00723BEE /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C71C427FD5C8B00723BEE /* Note.swift */; };
@@ -77,7 +77,7 @@
 		BF3AD31527FC1FE900002E53 /* QuizListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListViewController.swift; sourceTree = "<group>"; };
 		BF3AD31727FC31FD00002E53 /* AddQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuizViewController.swift; sourceTree = "<group>"; };
 		BF60D23528051D8F00325024 /* QuizJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizJsonModel.swift; sourceTree = "<group>"; };
-		BF60D23728051E5B00325024 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		BF60D23728051E5B00325024 /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
 		BF60D2392805223F00325024 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		BF60D23B280527EA00325024 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		BF7C71C427FD5C8B00723BEE /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 			children = (
 				BF60D23528051D8F00325024 /* QuizJsonModel.swift */,
 				BF7C71C427FD5C8B00723BEE /* Note.swift */,
-				BF60D23728051E5B00325024 /* Quiz.swift */,
+				BF60D23728051E5B00325024 /* QuizModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -508,7 +508,7 @@
 				BF3AD31627FC1FE900002E53 /* QuizListViewController.swift in Sources */,
 				FD6435F428048FC300137173 /* JSONManager.swift in Sources */,
 				BF60D23A2805223F00325024 /* DatabaseManager.swift in Sources */,
-				BF60D23828051E5B00325024 /* Quiz.swift in Sources */,
+				BF60D23828051E5B00325024 /* QuizModel.swift in Sources */,
 				FDC57F432802C28D008D51CA /* CardView.swift in Sources */,
 				FD894AAD280B3BA300C43AF8 /* PracticePageViewController.swift in Sources */,
 				BF3AD2E627FC126300002E53 /* ViewController.swift in Sources */,

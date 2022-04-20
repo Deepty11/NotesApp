@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Quiz: Object{
+class QuizModel: Object{
     @Persisted var question: String?
     @Persisted var answer: String?
     @Persisted var isKnown: Bool

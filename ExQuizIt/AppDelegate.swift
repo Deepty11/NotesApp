@@ -25,13 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().tintColor = .white
         }
         
-        let quizEntries = realm.objects(Quiz.self)
-        if quizEntries.isEmpty{
-            //save dummy quiz from JSON to realm
-            let quizArray = JSONManager.shared.parseJson()
-            DatabaseManager.shared.storeJSONParsedQuiz(with: quizArray)
-        }
-        
         return true
     }
 

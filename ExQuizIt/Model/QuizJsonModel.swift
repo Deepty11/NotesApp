@@ -7,7 +7,14 @@
 
 import Foundation
 
-class QuizeJsonModel: Decodable{
+struct Quizzes: Decodable{
+    var results: [Quiz]
+    
+}
+
+struct Quiz: Decodable{
+    var category: String
+    var difficulty: String
     var question: String
-    var answer: String
+    var correct_answer: String
 }

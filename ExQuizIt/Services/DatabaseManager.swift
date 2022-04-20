@@ -12,12 +12,12 @@ class DatabaseManager{
     static let shared = DatabaseManager()
     var realm = try! Realm()
     
-    func storeJSONParsedQuiz(with quizzes: [QuizeJsonModel]){
-        var quizEntries = [Quiz]()
+    func storeJSONParsedQuiz(with quizzes: [Quiz]){
+        var quizEntries = [QuizModel]()
         for quiz in quizzes{
-            let quizModel = Quiz()
+            let quizModel = QuizModel()
             quizModel.question = quiz.question
-            quizModel.answer = quiz.answer
+            quizModel.answer = quiz.correct_answer
             quizModel.isKnown = false
             quizEntries.append(quizModel)
         }
@@ -30,8 +30,8 @@ class DatabaseManager{
         }
     }
     
-    func updateLearningStatus(with status: Bool, of quiz: Quiz){
-        let quizTobeUpdated = realm.objects(Quiz.self).filter("question == %@", quiz.question ?? "")[0]
+    func updateLearningStatus(with status: Bool, of quiz: QuizModel){
+        let quizTobeUpdated = realm.objects(QuizModel.self).filter("question == %@", quiz.question ?? "")[0]
         do{
             try realm.write{
                 quizTobeUpdated.isKnown = status
@@ -42,14 +42,14 @@ class DatabaseManager{
         }
     }
     
-    func getAllQuiz()-> [Quiz]{
-        return Array(realm.objects(Quiz.self))
+    func getAllQuiz()-> [QuizModel]{
+        return Array(realm.objects(QuizModel.self))
     }
     
     func saveQuizToDatabase(question: String, answer: String){
         do{
             try realm.write {
-                let quiz = Quiz()
+                let quiz = QuizModel()
                 quiz.question = question
                 quiz.answer = answer
                 quiz.isKnown = false
