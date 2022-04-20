@@ -89,31 +89,41 @@ class JSONManager{
        return []
     }
     
-    func getAllQuizzesFromAPIs(completion: @escaping ([Quiz])->() ){
-        var quizzes = [Quiz]()
+    func getAllQuizzesFromAPIsAndCachingToRealm(completion: @escaping ([Quiz])->() ){
+        let quizzes = [Quiz]()
         let dispatchGroup = DispatchGroup()
+        
+        // fetching and storing vehicles Quizzes
         dispatchGroup.enter()
         self.getDataFrom(urlString: self.vehicleQuizURL) { vehicleQuizArray in
-            quizzes.append(contentsOf: vehicleQuizArray)
+            DispatchQueue.main.async {
+                DatabaseManager.shared.storeJSONParsedQuiz(with: vehicleQuizArray)
+            }
+            dispatchGroup.leave()
         }
-        dispatchGroup.leave()
         
+        // fetching and storing sports Quizzes
         dispatchGroup.enter()
         self.getDataFrom(urlString: self.sportsQuizURL) { sportsQuizArray in
-            quizzes.append(contentsOf: sportsQuizArray)
+            DispatchQueue.main.async {
+                DatabaseManager.shared.storeJSONParsedQuiz(with: sportsQuizArray)
+            }
+            dispatchGroup.leave()
         }
-        dispatchGroup.leave()
         
+        // fetching and storing computer Quizzes
         dispatchGroup.enter()
         self.getDataFrom(urlString: self.computerQuizURL) { computerQuizArray in
-            quizzes.append(contentsOf: computerQuizArray)
+            DispatchQueue.main.async {
+                DatabaseManager.shared.storeJSONParsedQuiz(with: computerQuizArray)
+            }
+            dispatchGroup.leave()
         }
-        dispatchGroup.leave()
+        
         
         dispatchGroup.notify(queue: .main) {
             completion(quizzes)
         }
-        
         
     }
     

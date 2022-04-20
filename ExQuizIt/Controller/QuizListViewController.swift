@@ -61,28 +61,22 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
             /// calls and downloads data from API and then saves to realm
             /// and then fetch data from realm
             ///save dummy quiz from JSON to realm
-            JSONManager.shared.getAllQuizzesFromAPIs { quizzes in
-                DatabaseManager.shared.storeJSONParsedQuiz(with: quizzes)
-                self.quizSources = self.quizes
-                
-                /// initializing answerFlipped false for each quiz
-                for _ in self.quizSources{
-                    AppState.shared.answerViewDisplayed.append(false)
-                }
-                self.tableView.reloadData()
-               // self.tableView.isHidden = self.quizSources.isEmpty ? true : false
-               // self.emptyQuizLabel.isHidden = self.quizSources.isEmpty ? false : true
-                
+            JSONManager.shared.getAllQuizzesFromAPIsAndCachingToRealm { quizzes in
+                self.refreshUI()
             }
-        } else{
-            /// fetch data from realm
-            self.quizSources = self.quizes
-            self.tableView.reloadData()
-            self.tableView.isHidden = self.quizSources.isEmpty ? true : false
-            self.emptyQuizLabel.isHidden = self.quizSources.isEmpty ? false : true
-            
         }
+        self.refreshUI()
         
+    }
+    
+    func refreshUI(){
+        self.quizSources = self.quizes
+        for _ in 0 ..< self.quizSources.count{
+            AppState.shared.answerViewDisplayed.append(false)
+        }
+        self.tableView.reloadData()
+        self.tableView.isHidden = self.quizSources.isEmpty ? true : false
+        self.emptyQuizLabel.isHidden = self.quizSources.isEmpty ? false : true
     }
     
     private func configureNavigationBar(){
