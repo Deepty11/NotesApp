@@ -58,9 +58,7 @@ class QuizListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func fetchQuizzes(){
         if self.quizes.isEmpty{
-            /// calls and downloads data from API and then saves to realm
-            /// and then fetch data from realm
-            ///save dummy quiz from JSON to realm
+            self.emptyQuizLabel.text = "Loading ..."
             JSONManager.shared.getAllQuizzesFromAPIsAndCachingToRealm { quizzes in
                 self.refreshUI()
             }

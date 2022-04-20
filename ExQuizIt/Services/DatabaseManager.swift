@@ -46,6 +46,10 @@ class DatabaseManager{
         return Array(realm.objects(QuizModel.self))
     }
     
+    func getAllUnknownQuizzes()-> [QuizModel]{
+        return Array(realm.objects(QuizModel.self).filter("isKnown == %@", true).shuffled())
+    }
+    
     func saveQuizToDatabase(question: String, answer: String){
         do{
             try realm.write {
